@@ -171,7 +171,30 @@ class _DanieWidokState extends State<DanieWidok> {
                           ),
                         ),
                       ))
-              ),Padding(padding: EdgeInsets.only(top: 48.0),
+              ),
+              Padding(padding: EdgeInsets.only(top: 48.0),
+                  child: Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(left: 40.0, right: 40.0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor:
+                              MaterialStateProperty.all(Colors.white),
+                              padding: MaterialStateProperty.all(
+                                  EdgeInsets.only(top: 12.0, bottom: 12.0))),
+                          onPressed: () {
+
+                          },
+                          child: Text(
+                            'Dodaj produkt do bzay danych',
+                            style: TextStyle(fontSize: 19.0, color: Colors.black),
+                          ),
+                        ),
+                      ))
+              ),
+              Padding(padding: EdgeInsets.only(top: 20.0),
                   child: Container(
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(left: 40.0, right: 40.0),
