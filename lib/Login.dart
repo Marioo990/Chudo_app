@@ -25,7 +25,12 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             Container(
-              color: Colors.blue[900],
+              decoration: BoxDecoration(
+                  color: new Color(0xffffffff),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [new Color(0xff6E6CD8), new Color(0xff40A0EF), new Color(0xff77E1EE)])),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.70,
               child: Center(
@@ -189,6 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: CircularProgressIndicator(
                                   color: Colors.white,
                                 ))),
+
                       ],
                     ),
                   ),
@@ -234,24 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      "Made by",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "WEBFUN",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                        color: Colors.yellowAccent[400],
-                      ),
-                    ),
+
                   ],
                 ),
               ),
