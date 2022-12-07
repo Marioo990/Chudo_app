@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "728651661303",
+    "project_id": "chudoapp-cfd4b",
+    "storage_bucket": "chudoapp-cfd4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728651661303:android:469b1fba5134a0ce0378f2",
+        "android_client_info": {
+          "package_name": "com.example.chudo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728651661303-oko992gijmfcpqmdgjimde60f571nbag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaAe5yzBaHDhshWr1dvJmRlcOIOE0lCMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728651661303-oko992gijmfcpqmdgjimde60f571nbag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
