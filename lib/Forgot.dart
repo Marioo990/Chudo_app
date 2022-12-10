@@ -33,7 +33,7 @@ class _ForgotpassState extends State<Forgotpass> {
                         end: Alignment.topRight,
                         colors: [new Color(0xff6E6CD8), new Color(0xff40A0EF), new Color(0xff77E1EE)])),
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.70,
+               height: MediaQuery.of(context).size.height * 1,
                 child: Center(
                   child: Container(
                     margin: EdgeInsets.all(12),

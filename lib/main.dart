@@ -59,4 +59,8 @@ class _MyAppState extends State<MyApp> {
       home: Register(),
     );
   }
+
+}
+class Strings{
+  static const String appTitle = 'Chudo App';
 }

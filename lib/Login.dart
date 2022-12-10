@@ -1,8 +1,9 @@
+import 'PowitalnyWidok.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'Forgot.dart';
-import 'Home.dart';
+
 import 'Register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                       end: Alignment.topRight,
                       colors: [new Color(0xff6E6CD8), new Color(0xff40A0EF), new Color(0xff77E1EE)])),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.70,
+              height: MediaQuery.of(context).size.height * 1,
               child: Center(
                 child: Container(
                   margin: EdgeInsets.all(12),
@@ -138,6 +139,9 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           keyboardType: TextInputType.emailAddress,
                         ),
+                        SizedBox(
+                          height: 50,
+                        ),
                         RaisedButton(
                           color: Colors.blue[900],
                           textColor: Colors.white,
@@ -159,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 30,
                         ),
                         MaterialButton(
                           shape: RoundedRectangleBorder(
@@ -174,6 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                             signIn(
                                 emailController.text, passwordController.text);
                           },
+
                           child: Text(
                             "Login",
                             style: TextStyle(
@@ -183,7 +188,32 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.white,
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 35,
+                        ),
+                        MaterialButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20.0),
+                            ),
+                          ),
+                          elevation: 5.0,
+                          height: 40,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Register(),
+                              ),
+                            );
+                          },
+                          color: Colors.blue[900],
+                          child: Text(
+                            "Register Now",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
                         Visibility(
                             maintainSize: true,
@@ -193,58 +223,18 @@ class _LoginPageState extends State<LoginPage> {
                             child: Container(
                                 child: CircularProgressIndicator(
                                   color: Colors.white,
-                                ))),
+                                )
+                            )
+                        ),
 
                       ],
                     ),
                   ),
                 ),
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                      ),
-                      elevation: 5.0,
-                      height: 40,
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Register(),
-                          ),
-                        );
-                      },
-                      color: Colors.blue[900],
-                      child: Text(
-                        "Register Now",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
 
-                  ],
-                ),
               ),
             ),
+
           ],
         ),
       ),
@@ -262,7 +252,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomePage(),
+            builder: (context) => PowitalnyWidok(),
           ),
         );
       } on FirebaseAuthException catch (e) {
