@@ -5,12 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'main.dart';
 
-class DanieWidok extends StatefulWidget {
+class Dane extends StatefulWidget {
   @override
-  State<DanieWidok> createState() => _DanieWidokState();
+  State<Dane> createState() => _DaneState();
 }
 
-class _DanieWidokState extends State<DanieWidok> {
+class _DaneState extends State<Dane> {
   @override
   Widget build(BuildContext context) {
     // zmienana do pobierania ilosci gramów posiłku
@@ -195,4 +195,3 @@ String? zaznacony_produkt(String? s, String? userpost) {
   userpost = s;
   return userpost;
 }
-s

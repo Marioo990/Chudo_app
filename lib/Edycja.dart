@@ -5,15 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../lib/main.dart';
+import 'main.dart';
 
-class DaneWidok extends StatefulWidget {
+class Edycja extends StatefulWidget {
   @override
-  State<DaneWidok> createState() => _DaneWidokState();
+  State<Edycja> createState() => _EdycjaState();
 }
 
-class _DaneWidokState extends State<DaneWidok> {
-  late TextEditingController _imie;
+class _EdycjaState extends State<Edycja> {
+
+  final _imie = TextEditingController();
   late TextEditingController _wiek;
   late TextEditingController _waga;
 
@@ -33,20 +34,14 @@ class _DaneWidokState extends State<DaneWidok> {
                     new Color(0xff77E1EE)
                   ])),
         ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: 50,
-            left: 40,
-            right: 40,
-            bottom: 500,
-          ),
-        ),
+
         Align(
             alignment: FractionalOffset.center,
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  TextField(
+                  Padding(padding: EdgeInsets.only(top:50),
+                  child: TextField(
                     controller: _imie,
                     decoration: InputDecoration(
                       fillColor: Colors.white,
@@ -59,29 +54,11 @@ class _DaneWidokState extends State<DaneWidok> {
                           },
                           icon: const Icon(Icons.clear)),
                     ),
+
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TextField(
-                    controller: _wiek,
-                    decoration: InputDecoration(labelText: "Podaj wiek "),
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ], // Only numbers can be entered
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TextField(
-                    controller:_waga,
-                    decoration: InputDecoration(labelText: "Podaj swoja wage "),
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ], // Only numbers can be entered
-                  ),
+
+                  )
+
                 ]
             )
         ),

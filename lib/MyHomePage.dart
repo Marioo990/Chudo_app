@@ -1,6 +1,5 @@
 
 import 'Dane.dart';
-
 import 'Edycja.dart';
 import 'package:flutter/material.dart';
 
