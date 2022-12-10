@@ -1,6 +1,7 @@
 
-import 'DaneWidok.dart';
-import 'DanieWidok.dart';
+import 'Dane.dart';
+
+import 'Edycja.dart';
 import 'package:flutter/material.dart';
 
 import 'AktualneWidok.dart';
@@ -14,8 +15,8 @@ class _MyHomePageState extends State<MyHomePage> {
   var _currentIndex = 0;
   final screens = [
     AktualneWidok(),
-    DaneWidok(),
-    DanieWidok()
+    Dane(),
+    Edycja()
   ];
 
   @override
@@ -36,11 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: (index) => setState(() => _currentIndex = index),
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.masks_outlined), label: "powietrze"),
+              icon: Icon(Icons.add_chart_sharp ), label: "powietrze"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.mail_outline), label: "powietrze"),
+              icon: Icon(Icons.account_circle_outlined ), label: "powietrze"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.wb_cloudy_outlined), label: "pogoda")
+              icon: Icon(Icons.add_shopping_cart ), label: "pogoda")
         ],
       ),
     );

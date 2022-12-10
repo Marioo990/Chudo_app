@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'main.dart';
+import '../lib/main.dart';
 
 class DaneWidok extends StatefulWidget {
   @override

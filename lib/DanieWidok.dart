@@ -74,12 +74,14 @@ class _DanieWidokState extends State<DanieWidok> {
           child: Container(
             alignment: FractionalOffset.center,
             child: ListView(
+
               children: [
                 DropdownSearch<String>(
                   mode: Mode.MENU,
                   showSelectedItems: true,
                   items: ["kotlet", "cola ", "bułka", 'ser zółty'],
-                  dropdownSearchDecoration: InputDecoration(
+                  dropdownSearchDecoration: const InputDecoration(
+                    fillColor: Colors.white,
                     labelText: "Menu produktów",
                     hintText: "Wybierz produkt",
                   ),
@@ -95,51 +97,19 @@ class _DanieWidokState extends State<DanieWidok> {
             ),
           ),
         ),
-        /* Padding(
-            padding: const EdgeInsets.only(
-              top: 250,
-              left: 80,
-              right: 80,
-              bottom: 300,
-            ),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(6.0),
-                child: Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.all(10.0),
-                  height: 38.0,
-                  child: IntrinsicHeight(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          alignment: Alignment.centerLeft,
-                          image: AssetImage('icons/happy.png'),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: 8.0)),
-                        Text(
-                          "Kotlet kurczak",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                  fontSize: 20.0,
-                                  height: 1.2,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w300)),
-                        )
-                      ],
-                    ),
-                  ),
-                ))),*/
+
         Padding(
           padding: EdgeInsets.only(top: 150.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
+
+
+               TextField(
                 controller: _liczba_gram,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
                   hintText: ("Podaj ile gramów "),
                   border: const OutlineInputBorder(),
                   suffixIcon: IconButton(
@@ -150,6 +120,8 @@ class _DanieWidokState extends State<DanieWidok> {
                       icon: const Icon(Icons.clear)),
                 ),
               ),
+
+
               Padding(padding: EdgeInsets.only(top: 48.0),
                   child: Container(
                       alignment: Alignment.center,
@@ -188,34 +160,13 @@ class _DanieWidokState extends State<DanieWidok> {
 
                           },
                           child: Text(
-                            'Dodaj produkt do bzay danych',
+                            'Dodaj produkt do bazy danych',
                             style: TextStyle(fontSize: 19.0, color: Colors.black),
                           ),
                         ),
                       ))
               ),
-              Padding(padding: EdgeInsets.only(top: 20.0),
-                  child: Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 40.0, right: 40.0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                              padding: MaterialStateProperty.all(
-                                  EdgeInsets.only(top: 12.0, bottom: 12.0))),
-                          onPressed: () {
 
-                          },
-                          child: Text(
-                            'Dodaj produkt do bzay danych',
-                            style: TextStyle(fontSize: 19.0, color: Colors.black),
-                          ),
-                        ),
-                      ))
-              ),
             ],
           ),
         ),
