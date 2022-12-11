@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final screens = [
     AktualneWidok(),
     DanieWidok(),
-    DodawanieDoBazy()
+    Dane()
   ];
 
   @override

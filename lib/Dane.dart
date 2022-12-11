@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:clean_air/Edycja.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -294,7 +295,12 @@ class _DaneState extends State<Dane> {
                                 padding: MaterialStateProperty.all(
                                     EdgeInsets.only(top: 12.0, bottom: 12.0))),
                             onPressed: () {
-
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Edycja(),
+                                ),
+                              );
                             },
                             child: Text(
                               'Edytuj Dane',
