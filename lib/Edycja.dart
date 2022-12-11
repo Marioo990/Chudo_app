@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:clean_air/MyHomePage.dart';
+import 'MyHomePage.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'Dane.dart';
 import 'main.dart';
 
-const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+const List<String> list = <String>['Schudnąć', 'Utrzymać wagę',  'Przytyć'];
 const List<String> plec = <String>['Męszczyzna', 'Kobieta'];
 const List<String> czynnosc = <String>['Bieganie', 'Siłownia','Brak'];
 class Edycja extends StatefulWidget {
@@ -106,6 +106,28 @@ class _EdycjaState extends State<Edycja> {
                     ),
                   ),
                   Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child:Container(
+
+                      alignment: FractionalOffset.center,
+
+
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(child: Text("Wybierz Cel",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 20.0,
+                                      height: 1.2,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700))),
+                          ),
+                          Cel(),
+                        ],
+                      ),
+                    ),),
+                  Padding(
                       padding: EdgeInsets.only(top: 30),
                     child:Container(
 
@@ -123,10 +145,11 @@ class _EdycjaState extends State<Edycja> {
                                       color: Colors.white,
                                       fontWeight: FontWeight.w700))),
                           ),
-                           DropdownButtonExample(),
+                           Gender(),
                         ],
                       ),
                   ),),
+
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child:Container(
@@ -145,32 +168,11 @@ class _EdycjaState extends State<Edycja> {
                                       color: Colors.white,
                                       fontWeight: FontWeight.w700))),
                           ),
-                          Gender(),
-                        ],
-                      ),
-                    ),),
-                  Padding(
-                    padding: EdgeInsets.only(top: 30),
-                    child:Container(
-
-                      alignment: FractionalOffset.center,
-
-
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(child: Text("Wybierz Cel",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.lato(
-                                  textStyle: TextStyle(
-                                      fontSize: 20.0,
-                                      height: 1.2,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700))),
-                          ),
                           Aktywnosc(),
                         ],
                       ),
                     ),),
+
                   Padding(padding: EdgeInsets.only(top: 48.0),
                       child: Container(
                           alignment: Alignment.center,
@@ -209,16 +211,16 @@ class _EdycjaState extends State<Edycja> {
 }
 
 
-class DropdownButtonExample extends StatefulWidget {
-  const DropdownButtonExample({key});
+class Cel extends StatefulWidget {
+  const Cel({key});
 
 
 
   @override
-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+  State<Cel> createState() => _CelState();
 }
 
-class _DropdownButtonExampleState extends State<DropdownButtonExample> {
+class _CelState extends State<Cel> {
   String dropdownValue = list.first;
 
   @override

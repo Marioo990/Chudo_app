@@ -1,6 +1,8 @@
 import 'dart:async';
 
-import 'package:clean_air/Edycja.dart';
+import 'package:chudo_app/Zmienne.dart';
+
+import 'Edycja.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -96,7 +98,7 @@ class _DaneState extends State<Dane> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "Adrian",
+                                imieAsString,
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -126,7 +128,7 @@ class _DaneState extends State<Dane> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "20 Lat",
+                                wiekAsString +" Lat",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -195,7 +197,7 @@ class _DaneState extends State<Dane> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "98Kg",
+                                wagaAsString+" Kg",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(

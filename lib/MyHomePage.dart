@@ -1,6 +1,6 @@
 
-import 'package:clean_air/DanieWidok.dart';
-import 'package:clean_air/DodawanieDoBazy.dart';
+import 'DanieWidok.dart';
+import 'DodawanieDoBazy.dart';
 
 import 'Dane.dart';
 import 'Edycja.dart';
@@ -17,8 +17,9 @@ class _MyHomePageState extends State<MyHomePage> {
   var _currentIndex = 0;
   final screens = [
     AktualneWidok(),
-    DanieWidok(),
-    Dane()
+    Dane(),
+    DanieWidok()
+
   ];
 
   @override

@@ -1,15 +1,17 @@
 import 'dart:async';
 
+import 'MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Zmienne.dart';
 import 'main.dart';
-class AktualneWidok extends StatefulWidget {
+class SiedemAktualneWidok extends StatefulWidget {
   @override
-  State<AktualneWidok> createState() => _AktualneWidokState();
+  State<SiedemAktualneWidok> createState() => _SiedemAktualneWidokState();
 }
 
-class _AktualneWidokState extends State<AktualneWidok> {
+class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +40,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("1240 ",
+                        Text(kalorieAsString_7,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -47,7 +49,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700))),
                         Text(
-                          "/3500 ",
+                          "/"+ calkowite_kalorieAsString_7,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
@@ -105,7 +107,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "40g",
+                                bialkoAsString_7+"g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -139,7 +141,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "350g",
+                                calkowite_bialkoAsString_7+"g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -190,7 +192,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "40g",
+                                cukryAsString_7+"g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -224,7 +226,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "350g",
+                                calkowite_cukryAsString_7+"g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -275,7 +277,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "50g",
+                                tluszczeAsString_7+"g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -309,7 +311,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "400g",
+                                calkowite_tluszczeAsString_7+"g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -325,7 +327,35 @@ class _AktualneWidokState extends State<AktualneWidok> {
                         )
                       ],
                     )),
-                Padding(padding: EdgeInsets.only(top: 48.0)),
+                Padding(padding: EdgeInsets.only(top: 20.0),
+                    child: Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(left: 100.0, right: 100.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                MaterialStateProperty.all(Colors.white),
+                                padding: MaterialStateProperty.all(
+                                    EdgeInsets.only(top: 12.0, bottom: 12.0))),
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyHomePage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Dane z 1 dnia  ',
+                              style: TextStyle(fontSize: 16.0, color: Colors.black),
+                            ),
+                          ),
+                        ))
+
+
+                ),
               ],
             )),
       ]),

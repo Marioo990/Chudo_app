@@ -32,8 +32,8 @@ class Strings{
 }
 
  */
-import 'package:clean_air/PowitalnyWidok.dart';
-import 'package:clean_air/testowy.dart';
+import 'PowitalnyWidok.dart';
+import 'testowy.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
