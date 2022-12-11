@@ -142,7 +142,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                       ],
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top: 48.0),
+                  Padding(padding: EdgeInsets.only(top: 30.0),
                       child: Container(
                           alignment: Alignment.center,
                           margin: EdgeInsets.only(left: 40.0, right: 40.0),
