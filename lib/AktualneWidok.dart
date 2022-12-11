@@ -348,7 +348,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               );
                             },
                             child: Text(
-                              '7-dni dane  ',
+                              'Przejdź   na dane z 7-dni',
                               style: TextStyle(fontSize: 16.0, color: Colors.black),
                             ),
                           ),

@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:chudo_app/Zmienne.dart';
+
 import 'MyHomePage.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,6 +24,7 @@ class _EdycjaState extends State<Edycja> {
   final _imie = TextEditingController();
   final _wiek = TextEditingController();
   final _waga = TextEditingController();
+  final _tall = TextEditingController();
   bool _plec = true;
 
   @override
@@ -52,7 +55,7 @@ class _EdycjaState extends State<Edycja> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: ("Podaj imie "),
+                        hintText: ("Podaj imię "),
                         border: const OutlineInputBorder(),
                         suffixIcon: IconButton(
                             onPressed: () {
@@ -70,7 +73,7 @@ class _EdycjaState extends State<Edycja> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: ("podaj swój wiek"),
+                        hintText: ("Podaj swój wiek"),
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
@@ -87,11 +90,32 @@ class _EdycjaState extends State<Edycja> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
+                      controller: _tall,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: ("Podaj swój wzrost"),
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              // przycisk do czyszcznia textfield
+                              _tall.clear();
+                            },
+                            icon: const Icon(Icons.clear)),
+                      ),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly,
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child: TextField(
                       controller: _waga,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: ("podaj swoją wage"),
+                        hintText: ("Podaj swoją wagę"),
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
@@ -114,7 +138,7 @@ class _EdycjaState extends State<Edycja> {
 
                       child: Row(
                         children: <Widget>[
-                          Expanded(child: Text("Wybierz Cel",
+                          Expanded(child: Text("Wybierz cel",
                               textAlign: TextAlign.center,
                               style: GoogleFonts.lato(
                                   textStyle: TextStyle(
@@ -159,7 +183,7 @@ class _EdycjaState extends State<Edycja> {
 
                       child: Row(
                         children: <Widget>[
-                          Expanded(child: Text("Wybierz Aktywność",
+                          Expanded(child: Text("Wybierz aktywność",
                               textAlign: TextAlign.center,
                               style: GoogleFonts.lato(
                                   textStyle: TextStyle(

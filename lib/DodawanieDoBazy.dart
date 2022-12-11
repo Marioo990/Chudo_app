@@ -65,7 +65,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: ("Podaj ile Kcal na 100g"),
+                        hintText: ("Podaj ile kcal na 100g"),
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
@@ -128,7 +128,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: ("Podaj ile cukrów na 100g"),
+                        hintText: ("Podaj ile węglowodanów na 100g"),
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield

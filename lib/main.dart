@@ -32,6 +32,8 @@ class Strings{
 }
 
  */
+import 'package:chudo_app/MyHomePage.dart';
+
 import 'PowitalnyWidok.dart';
 import 'testowy.dart';
 import 'package:firebase_core/firebase_core.dart';

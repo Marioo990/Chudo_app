@@ -348,7 +348,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               );
                             },
                             child: Text(
-                              'Dane z 1 dnia  ',
+                              'Wróć na dane z 1 dnia ',
                               style: TextStyle(fontSize: 16.0, color: Colors.black),
                             ),
                           ),

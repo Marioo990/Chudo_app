@@ -268,7 +268,7 @@ class _DaneState extends State<Dane> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "Bieganie",
+                                "Brak",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -284,7 +284,45 @@ class _DaneState extends State<Dane> {
                         )
                       ],
                     )),
-                Padding(padding: EdgeInsets.only(top: 48.0),
+                Padding(padding: EdgeInsets.only(top: 25.0)),
+                IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 130,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "Wzrost",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                        fontSize: 25.0,
+                                        height: 1.2,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700)),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 2.0)),
+                              Text(
+                                wzrostAsString+"cm",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                        fontSize: 20.0,
+                                        height: 1.2,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500)),
+                              )
+                            ],
+                          ),
+                        ),
+
+
+                      ],
+                    )),
+                Padding(padding: EdgeInsets.only( top: 20),
                     child: Container(
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(left: 40.0, right: 40.0),

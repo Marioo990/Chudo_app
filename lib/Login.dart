@@ -156,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                                     builder: (context) => Forgotpass()));
                           },
                           child: Text(
-                            "Zpomniałem hasła ....",
+                            "Zapomniałem hasła ....",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,

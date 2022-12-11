@@ -235,7 +235,7 @@ class _RegisterState extends State<Register> {
                                 );
                               },
                               child: Text(
-                                "Zajerestruj",
+                                "Zarejestruj",
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
