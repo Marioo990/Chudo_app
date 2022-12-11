@@ -11,7 +11,7 @@ import 'Dane.dart';
 import 'main.dart';
 
 const List<String> list = <String>['Schudnąć', 'Utrzymać wagę',  'Przytyć'];
-const List<String> plec = <String>['Męszczyzna', 'Kobieta'];
+const List<String> plec = <String>['Mężczyzna', 'Kobieta'];
 const List<String> czynnosc = <String>['Bieganie', 'Siłownia','Brak'];
 class Edycja extends StatefulWidget {
   @override
@@ -52,7 +52,7 @@ class _EdycjaState extends State<Edycja> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: ("Podaj ile gramów "),
+                        hintText: ("Podaj imie "),
                         border: const OutlineInputBorder(),
                         suffixIcon: IconButton(
                             onPressed: () {
@@ -87,7 +87,7 @@ class _EdycjaState extends State<Edycja> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _wiek,
+                      controller: _waga,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,

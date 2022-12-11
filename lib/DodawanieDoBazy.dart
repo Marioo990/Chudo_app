@@ -82,7 +82,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _wiek,
+                      controller: _waga,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,

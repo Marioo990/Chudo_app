@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:chudo_app/Login.dart';
 import 'package:chudo_app/Zmienne.dart';
 
 import 'MyHomePage.dart';
@@ -76,7 +77,7 @@ class _PowitalnyWidokState extends State<PowitalnyWidok> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MyHomePage()));
+                              builder: (context) => LoginPage()));
                     },
                     child: Text(
                       'Zaczynajmy',

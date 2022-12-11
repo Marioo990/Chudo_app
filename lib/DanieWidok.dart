@@ -2,6 +2,14 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'MyHomePage.dart';
+
 
 import 'DodawanieDoBazy.dart';
 import 'main.dart';
@@ -113,8 +121,7 @@ class _DanieWidokState extends State<DanieWidok> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      hintText: ("Podaj ile gramów "),
-                      border: const OutlineInputBorder(),
+                      hintText: ("Podaj ile gram"),
                       suffixIcon: IconButton(
                           onPressed: () {
                             // przycisk do czyszcznia textfield
@@ -122,8 +129,11 @@ class _DanieWidokState extends State<DanieWidok> {
                           },
                           icon: const Icon(Icons.clear)),
                     ),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
                   ),
-
 
                   Padding(padding: EdgeInsets.only(top: 48.0),
                       child: Container(

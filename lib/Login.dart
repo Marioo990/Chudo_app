@@ -1,3 +1,5 @@
+import 'package:chudo_app/MyHomePage.dart';
+
 import 'PowitalnyWidok.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 30,
                         ),
                         Text(
-                          "Login",
+                          "Logowanie",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -77,12 +79,12 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           validator: (value) {
                             if (value!.length == 0) {
-                              return "Email cannot be empty";
+                              return "Email nie może byc pusty";
                             }
                             if (!RegExp(
                                 "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                                 .hasMatch(value)) {
-                              return ("Please enter a valid email");
+                              return ("Prosze poprawić Email");
                             } else {
                               return null;
                             }
@@ -110,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                                 }),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Password',
+                            hintText: 'Hasło',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
@@ -126,10 +128,10 @@ class _LoginPageState extends State<LoginPage> {
                           validator: (value) {
                             RegExp regex = new RegExp(r'^.{6,}$');
                             if (value!.isEmpty) {
-                              return "Password cannot be empty";
+                              return "Hasło nie może byc puste";
                             }
                             if (!regex.hasMatch(value)) {
-                              return ("please enter valid password min. 6 character");
+                              return ("Prosze podac hasło przynajmniej z 6 zanaków");
                             } else {
                               return null;
                             }
@@ -154,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                                     builder: (context) => Forgotpass()));
                           },
                           child: Text(
-                            "Forgot Password ....",
+                            "Zpomniałem hasła ....",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
@@ -180,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
 
                           child: Text(
-                            "Login",
+                            "Zaloguj",
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -208,7 +210,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           color: Colors.blue[900],
                           child: Text(
-                            "Register Now",
+                            "Zarejestruj się",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -252,14 +254,14 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => PowitalnyWidok(),
+            builder: (context) => MyHomePage(),
           ),
         );
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
-          print('No user found for that email.');
+          print('Nie odnaleziono konta z takim Emailem');
         } else if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
+          print('Złe Hasło');
         }
       }
     }
