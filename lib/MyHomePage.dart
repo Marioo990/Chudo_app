@@ -1,4 +1,6 @@
 
+import 'package:clean_air/DanieWidok.dart';
+
 import 'Dane.dart';
 import 'Edycja.dart';
 import 'package:flutter/material.dart';

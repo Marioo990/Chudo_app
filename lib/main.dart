@@ -32,10 +32,12 @@ class Strings{
 }
 
  */
+import 'package:clean_air/PowitalnyWidok.dart';
+import 'package:clean_air/testowy.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'register.dart';
+import 'Login.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.blue[900],
       ),
-      home: Register(),
+      home: PowitalnyWidok(),
     );
   }
 
