@@ -58,7 +58,7 @@ class _RegisterState extends State<Register> {
                           height: 80,
                         ),
                         Text(
-                          "Register Now",
+                          "Zarejestruj się",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -91,12 +91,12 @@ class _RegisterState extends State<Register> {
                           ),
                           validator: (value) {
                             if (value!.length == 0) {
-                              return "Email cannot be empty";
+                              return "Email nie może byc pusty";
                             }
                             if (!RegExp(
                                 "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                                 .hasMatch(value)) {
-                              return ("Please enter a valid email");
+                              return ("Prosze poprawić Email");
                             } else {
                               return null;
                             }
@@ -122,7 +122,7 @@ class _RegisterState extends State<Register> {
                                 }),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Password',
+                            hintText: 'Hasło',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
@@ -138,10 +138,10 @@ class _RegisterState extends State<Register> {
                           validator: (value) {
                             RegExp regex = new RegExp(r'^.{6,}$');
                             if (value!.isEmpty) {
-                              return "Password cannot be empty";
+                              return "Hasło nie może byc puste";
                             }
                             if (!regex.hasMatch(value)) {
-                              return ("please enter valid password min. 6 character");
+                              return ("Prosze podac hasło przynajmniej z 6 zanaków");
                             } else {
                               return null;
                             }
@@ -166,7 +166,7 @@ class _RegisterState extends State<Register> {
                                 }),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Confirm Password',
+                            hintText: 'Powtórz hasło',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
@@ -182,7 +182,7 @@ class _RegisterState extends State<Register> {
                           validator: (value) {
                             if (confirmpassController.text !=
                                 passwordController.text) {
-                              return "Password did not match";
+                              return "Hasła niezgadzają się";
                             } else {
                               return null;
                             }
@@ -212,7 +212,7 @@ class _RegisterState extends State<Register> {
                                 );
                               },
                               child: Text(
-                                "Login",
+                                "Zaloguj",
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
@@ -235,7 +235,7 @@ class _RegisterState extends State<Register> {
                                 );
                               },
                               child: Text(
-                                "Register",
+                                "Zajerestruj",
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
@@ -275,9 +275,9 @@ class _RegisterState extends State<Register> {
         });
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
-          print('The password provided is too weak.');
+          print('Hasło jest za krótkie.');
         } else if (e.code == 'email-already-in-use') {
-          print('The account already exists for that email.');
+          print('Użytkownik z takim Emailem już istnieje');
         }
       } catch (e) {
         print(e);

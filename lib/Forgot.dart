@@ -44,8 +44,8 @@ class _ForgotpassState extends State<Forgotpass> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "Forgot\n"
-                                "Password",
+                            "Zapomniałem \n"
+                                "Hasło",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -53,7 +53,7 @@ class _ForgotpassState extends State<Forgotpass> {
                             ),
                           ),
                           Text(
-                            "Dont worry...",
+                            "nie martw się",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -87,12 +87,12 @@ class _ForgotpassState extends State<Forgotpass> {
                             textInputAction: TextInputAction.done,
                             validator: (value) {
                               if (value!.length == 0) {
-                                return "Email cannot be empty";
+                                return "Email nie może byc pusty";
                               }
                               if (!RegExp(
                                   "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                                   .hasMatch(value)) {
-                                return ("Please enter a valid email");
+                                return ("Prosze poprawić Email");
                               } else {
                                 return null;
                               }
