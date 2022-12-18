@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:chudo_app/Zmienne.dart';
 import 'Dane.dart';
 import 'main.dart';
 
 const List<String> list = <String>['Schudnąć', 'Utrzymać wagę',  'Przytyć'];
-const List<String> plec = <String>['Mężczyzna', 'Kobieta'];
+const List<String> plec = <String>['mezczyzna.nazwa', 'Kobieta'];
 const List<String> czynnosc = <String>['Bieganie', 'Siłownia','Brak'];
 class Edycja extends StatefulWidget {
   @override
