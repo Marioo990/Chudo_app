@@ -11,9 +11,17 @@ import 'main.dart';
 class Dane extends StatefulWidget {
   @override
   State<Dane> createState() => _DaneState();
+
 }
 
 class _DaneState extends State<Dane> {
+  final _user = User.dane_User();
+  List<User> _dane_user= [];
+  @override
+  void initState(){
+    _dane_user = _user;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +106,7 @@ class _DaneState extends State<Dane> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                'monika',
+                                _dane_user.first.imie!,
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(

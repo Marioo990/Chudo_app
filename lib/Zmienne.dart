@@ -32,7 +32,7 @@ var calkowite_cukry_7 = 1330;
 String kalorieAsString = kalorie.toString();
 String wiekAsString = wiek.toString();
 String wagaAsString = waga.toString();
-//String imieAsString = User.imie.toString();
+//SString imieAsString = User.imie.toString();
 String wzrostAsString = wzrost.toString();
 String calkowite_kalorieAsString = calkowite_kalorie.toString();
 String calkowite_bialkoAsString = calkowite_bialko.toString();
@@ -55,37 +55,37 @@ class User {
       required this.wzrost});
 
   static List<User> dane_User() {
-    return [User(wiek: 22, imie: 'Monika', waga: 80, wzrost: 190)];
+    return [User(wiek: 22, imie: 'Konrad', waga: 80, wzrost: 190)];
   }
 }
 
-class Aktywnosc {
+class Aktywnosc_class {
   late String nazwa;
   late double wartosc;
 
-  Aktywnosc({required this.nazwa, required this.wartosc});
+  Aktywnosc_class({required this.nazwa, required this.wartosc});
 
-  static List<Aktywnosc> list_Aktywnosc() {
+  static List<Aktywnosc_class> list_Aktywnosc() {
     return [
-      Aktywnosc(nazwa: 'Bieganie', wartosc: 500),
-      Aktywnosc(nazwa: 'Siłownia', wartosc: 500),
-      Aktywnosc(nazwa: 'Tryb siedzący', wartosc: 500),
-      Aktywnosc(nazwa: 'Spacer', wartosc: 500),
-      Aktywnosc(nazwa: 'Piłka nożna', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Bieganie', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Siłownia', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Tryb siedzący', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Spacer', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Piłka nożna', wartosc: 500),
     ];
   }
 }
 
 class Plec {
   late String nazwa;
-  late bool teza;
+  late double teza;
 
   Plec(this.teza, this.nazwa);
 
   static List<Plec> list_plec() {
     return [
-      Plec(true, 'Kobieta'),
-      Plec(false, 'Mężczyzna'),
+      Plec(66.5, 'Kobieta'),
+      Plec(500, 'Mężczyzna'),
     ];
   }
 }
@@ -99,7 +99,7 @@ class Cel {
 
   static List<Cel> cel_lista() {
     return [
-      Cel(cel: 'Schudnąć', wartosc: 500),
+      Cel(cel: 'Schudnąć', wartosc: -500),
       Cel(cel: 'utrzymać wagę', wartosc: 0),
       Cel(cel: 'przytyć', wartosc: 500),
     ];
