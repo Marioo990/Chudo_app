@@ -1,3 +1,5 @@
+
+
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +10,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'MyHomePage.dart';
-
 
 import 'DodawanieDoBazy.dart';
 import 'main.dart';
-
 class DanieWidok extends StatefulWidget {
   @override
   State<DanieWidok> createState() => _DanieWidokState();
@@ -79,43 +78,33 @@ class _DanieWidokState extends State<DanieWidok> {
                   )),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 150.0),
+              padding: EdgeInsets.only(top: 50.0, bottom: 100),
               child: Container(
                 alignment: FractionalOffset.center,
-                child: ListView(
-
-                  children: [
-                    DropdownSearch<String>(
-                      mode: Mode.MENU,
-                      showSelectedItems: true,
-                      items: ["kotlet", "cola ", "bułka", 'ser zółty'],
-                      dropdownSearchDecoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        labelText: "Menu produktów",
-                        hintText: "Wybierz produkt",
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Text("Wybierz produkt",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 24.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400))),
                       ),
-                      popupItemDisabled: isItemDisabled,
-                      onChanged: itemSelectionChanged,
-                      //selectedItem: "",
-                      showSearchBox: true,
-                      searchFieldProps: TextFieldProps(
-                        cursorColor: Colors.blue,
-                      ),
-                    ),
-                  ],
-                ),
+                      Jedzenie(),
+                    ]),
               ),
             ),
 
             Padding(
-              padding: EdgeInsets.only(top: 150.0),
+              padding: EdgeInsets.only(top: 50.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
-
                   TextField(
                     controller: _liczba_gram,
                     decoration: InputDecoration(
@@ -135,7 +124,7 @@ class _DanieWidokState extends State<DanieWidok> {
                     ],
                   ),
 
-                  Padding(padding: EdgeInsets.only(top: 48.0),
+                  Padding(padding: EdgeInsets.only(top: 150.0),
                       child: Container(
                           alignment: Alignment.center,
                           margin: EdgeInsets.only(left: 40.0, right: 40.0),
@@ -184,7 +173,6 @@ class _DanieWidokState extends State<DanieWidok> {
                             ),
                           ))
                   ),
-
                 ],
               ),
             ),
@@ -195,21 +183,74 @@ class _DanieWidokState extends State<DanieWidok> {
   }
 }
 
-bool isItemDisabled(String s) {
-  //return s.startsWith('I');
+class Jedzenie extends StatefulWidget {
+  const Jedzenie({key});
 
-  if (s.startsWith('I')) {
-    return true;
-  } else {
-    return false;
+  @override
+  State<Jedzenie> createState() => _jedzenie();
+}
+
+class _jedzenie extends State<Jedzenie> {
+  late int idd;
+
+
+  final _produkt = Produkt.produktList();
+  List<Produkt> produkt_list = [];
+  Produkt? dropdownValue;
+
+  @override
+  void initState() {
+    produkt_list = _produkt;
+    Produkt dropdownValue = produkt_list.first;
+    super.initState();
   }
-}
 
-void itemSelectionChanged(String? s) {
-  print(s);
-}
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<Produkt>(
+      hint: Text(
+        'wybierz',
+        textAlign: TextAlign.center,
+        style: GoogleFonts.lato(
+            textStyle: TextStyle(
+                fontSize: 24.0,
+                height: 1.2,
+                color: Colors.white,
+                fontWeight: FontWeight.w400)),
+      ),
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      style: const TextStyle(color: Colors.black),
+      underline: Container(
+        height: 2,
+        color: Colors.white,
+      ),
+      onChanged: (Produkt? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+          //przekaz(value);
+        });
+      },
+      items: produkt_list.map<DropdownMenuItem<Produkt>>((Produkt value) {
+        return DropdownMenuItem<Produkt>(
+          value: value,
+          child: Text(
+            value.nazwa,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.lato(
+                textStyle: TextStyle(
+                    fontSize: 24.0,
+                    height: 1.2,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400)),
+          ),
+        );
 
-String? zaznacony_produkt(String? s, String? userpost) {
-  userpost = s;
-  return userpost;
+      }).toList(),
+    );
+  }
+
+
 }

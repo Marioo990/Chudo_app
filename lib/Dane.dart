@@ -11,19 +11,24 @@ import 'main.dart';
 class Dane extends StatefulWidget {
   @override
   State<Dane> createState() => _DaneState();
-
 }
 
 class _DaneState extends State<Dane> {
-  final _user = User.dane_User();
-  List<User> _dane_user= [];
+
+  final _user = User.dane_User;
+  List<User> _dane_user = [];
+
   @override
-  void initState(){
+  void initState() {
     _dane_user = _user;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
+    var wiek = User.dane_User.first.wiek;
+    var waga = _dane_user.first.waga;
+    var wzrost = _dane_user.first.wzrost;
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -32,9 +37,11 @@ class _DaneState extends State<Dane> {
               gradient: LinearGradient(
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight,
-                  colors: [new Color(0xff6E6CD8), new Color(0xff40A0EF), new Color(0xff77E1EE)])),
-
-
+                  colors: [
+                    new Color(0xff6E6CD8),
+                    new Color(0xff40A0EF),
+                    new Color(0xff77E1EE)
+                  ])),
         ),
         Padding(
           padding: EdgeInsets.only(
@@ -42,7 +49,6 @@ class _DaneState extends State<Dane> {
             left: 40,
             right: 40,
             bottom: 500,
-
           ),
           child: ClipRRect(
               borderRadius: BorderRadius.circular(6.0),
@@ -80,257 +86,238 @@ class _DaneState extends State<Dane> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(padding: EdgeInsets.only(top: 45.0)),
-
-
-
-
                 IntrinsicHeight(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Imię",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                _dane_user.first.imie!,
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              )
-                            ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 130,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Imię",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700)),
                           ),
-                        ),
-
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "$wiek",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                wiekAsString +" Lat",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              ),
-
-
-                            ],
+                          Padding(padding: EdgeInsets.only(top: 2.0)),
+                          Text(
+                            _dane_user.first.imie,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500)),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 130,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "$wiek",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700)),
                           ),
-                        )
-                      ],
-                    )),
-
+                          Padding(padding: EdgeInsets.only(top: 2.0)),
+                          Text(
+                            '$wiek' + " Lat",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500)),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )),
                 Padding(padding: EdgeInsets.only(top: 55.0)),
                 IntrinsicHeight(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Płeć",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                "Kobieta",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              )
-                            ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 130,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Płeć",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700)),
                           ),
-                        ),
-
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Waga",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                wagaAsString+" Kg",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              ),
-
-
-                            ],
+                          Padding(padding: EdgeInsets.only(top: 2.0)),
+                          Text(
+                            "Kobieta",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500)),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 130,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Waga",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700)),
                           ),
-                        )
-                      ],
-                    )),
+                          Padding(padding: EdgeInsets.only(top: 2.0)),
+                          Text(
+                            '$waga' + " Kg",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500)),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )),
                 Padding(padding: EdgeInsets.only(top: 55.0)),
-
-
-
                 IntrinsicHeight(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Cel",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                "Schudnąć",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              )
-                            ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 130,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Cel",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700)),
                           ),
-                        ),
-
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Aktywność",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                "Brak",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              ),
-
-
-                            ],
+                          Padding(padding: EdgeInsets.only(top: 2.0)),
+                          Text(
+                            "Schudnąć",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500)),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 130,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Aktywność",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700)),
                           ),
-                        )
-                      ],
-                    )),
+                          Padding(padding: EdgeInsets.only(top: 2.0)),
+                          Text(
+                            "Brak",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500)),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )),
                 Padding(padding: EdgeInsets.only(top: 25.0)),
                 IntrinsicHeight(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Wzrost",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                wzrostAsString+"cm",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              )
-                            ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 130,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Wzrost",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700)),
                           ),
-                        ),
-
-
-                      ],
-                    )),
-                Padding(padding: EdgeInsets.only( top: 20),
+                          Padding(padding: EdgeInsets.only(top: 2.0)),
+                          Text(
+                            '$wzrost' + "cm",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    height: 1.2,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500)),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
+                Padding(
+                    padding: EdgeInsets.only(top: 20),
                     child: Container(
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(left: 40.0, right: 40.0),
@@ -339,27 +326,49 @@ class _DaneState extends State<Dane> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                                 backgroundColor:
-                                MaterialStateProperty.all(Colors.white),
+                                    MaterialStateProperty.all(Colors.white),
                                 padding: MaterialStateProperty.all(
                                     EdgeInsets.only(top: 12.0, bottom: 12.0))),
                             onPressed: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Edycja(),
-                                ),
-                              );
+                              setState(() {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Edycja(),
+                                  ),
+                                );
+                              });
                             },
                             child: Text(
                               'Edytuj Dane',
-                              style: TextStyle(fontSize: 16.0, color: Colors.black),
+                              style: TextStyle(
+                                  fontSize: 16.0, color: Colors.black),
                             ),
                           ),
-                        ))
-                ),
+                        ))),
               ],
             )),
       ]),
     );
+  }
+}
+class User {
+  late String imie;
+  late double wiek;
+  late double waga;
+  late double wzrost;
+
+  User(
+      {required this.wiek,
+        required this.imie,
+        required this.waga,
+        required this.wzrost});
+
+
+  set dimie(String x ){
+    imie = x;
+  }
+  static List<User> get dane_User {
+    return [User(wiek: 22, imie: "User" ,waga: 80, wzrost: 290)];
   }
 }

@@ -1,7 +1,7 @@
 
-var wiek = 25;
-var waga = 80;
-var wzrost = 160;
+import 'package:chudo_app/DanieWidok.dart';
+
+
 var kalorie = 1680;
 var calkowite_kalorie = 1518;
 var bialko = 60;
@@ -30,10 +30,6 @@ var calkowite_cukry_7 = 1330;
 
 
 String kalorieAsString = kalorie.toString();
-String wiekAsString = wiek.toString();
-String wagaAsString = waga.toString();
-//SString imieAsString = User.imie.toString();
-String wzrostAsString = wzrost.toString();
 String calkowite_kalorieAsString = calkowite_kalorie.toString();
 String calkowite_bialkoAsString = calkowite_bialko.toString();
 String calkowite_cukryAsString = calkowite_cukry.toString();
@@ -42,69 +38,9 @@ String cukryAsString = cukry.toString();
 String tluszczeAsString = tluszcze.toString();
 String bialkoAsString = bialko.toString();
 
-class User {
-   String? imie;
-  late int wiek;
-  late int waga;
-  late int wzrost;
 
-  User(
-      {required this.wiek,
-      required this.imie,
-      required this.waga,
-      required this.wzrost});
 
-  static List<User> dane_User() {
-    return [User(wiek: 22, imie: 'Konrad', waga: 80, wzrost: 190)];
-  }
-}
 
-class Aktywnosc_class {
-  late String nazwa;
-  late double wartosc;
-
-  Aktywnosc_class({required this.nazwa, required this.wartosc});
-
-  static List<Aktywnosc_class> list_Aktywnosc() {
-    return [
-      Aktywnosc_class(nazwa: 'Bieganie', wartosc: 500),
-      Aktywnosc_class(nazwa: 'Siłownia', wartosc: 500),
-      Aktywnosc_class(nazwa: 'Tryb siedzący', wartosc: 500),
-      Aktywnosc_class(nazwa: 'Spacer', wartosc: 500),
-      Aktywnosc_class(nazwa: 'Piłka nożna', wartosc: 500),
-    ];
-  }
-}
-
-class Plec {
-  late String nazwa;
-  late double teza;
-
-  Plec(this.teza, this.nazwa);
-
-  static List<Plec> list_plec() {
-    return [
-      Plec(66.5, 'Kobieta'),
-      Plec(500, 'Mężczyzna'),
-    ];
-  }
-}
-
-class Cel {
-  late String cel;
-
-  late int wartosc = 1;
-
-  Cel({required this.cel, required this.wartosc});
-
-  static List<Cel> cel_lista() {
-    return [
-      Cel(cel: 'Schudnąć', wartosc: -500),
-      Cel(cel: 'utrzymać wagę', wartosc: 0),
-      Cel(cel: 'przytyć', wartosc: 500),
-    ];
-  }
-}
 
 class Dieta {
   late double calkowite_kalorie;
@@ -156,18 +92,20 @@ class Produkt {
   late double bialko;
   late double tluszcze;
   late double cukry;
+   int id=0;
 
   Produkt(
       {required this.nazwa,
-      required this.kalorie,
-      required this.bialko,
-      required this.tluszcze,
-      required this.cukry});
+        required this.kalorie,
+        required this.bialko,
+        required this.tluszcze,
+        required this.cukry,
+        required this.id});
 
   static List<Produkt> produktList() {
     return [
-      Produkt(nazwa: 'jogurt', kalorie: 250, bialko: 23, tluszcze: 43, cukry: 67),
-      Produkt(nazwa: 'kotlet schabowy', kalorie: 350, bialko: 50, tluszcze: 43, cukry: 80),
+      Produkt(nazwa: 'jogurt', kalorie: 250, bialko: 23, tluszcze: 43, cukry: 67,id: 0),
+      Produkt(nazwa: 'kotlet schabowy', kalorie: 350, bialko: 50, tluszcze: 43, cukry: 80, id: 1),
     ];
   }
 
@@ -187,3 +125,5 @@ String calkowite_tluszczeAsString_7 = calkowite_tluszcze_7.toString();
 String cukryAsString_7 = cukry_7.toString();
 String tluszczeAsString_7 = tluszcze_7.toString();
 String bialkoAsString_7 = bialko_7.toString();
+
+//late double suma = produkt_list[1].bialko ;

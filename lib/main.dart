@@ -35,7 +35,7 @@ class Strings{
 import 'package:chudo_app/MyHomePage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'PowitalnyWidok.dart';
-import 'testowy.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
