@@ -23,6 +23,12 @@ class _EdycjaState extends State<Edycja> {
   final _wiek = TextEditingController();
   final _waga = TextEditingController();
   final _tall = TextEditingController();
+// void zapis(){
+//   setState(() {
+//     final danee =[_wiek,_imie,_waga,_tall];
+//     User.dane_User = danee;
+//   });
+//  }
 
 
   @override
@@ -242,12 +248,15 @@ class _CeleState extends State<Cele> {
 
   @override
   void initState() {
+
     lista_cel = _cel_;
     Cel dropdownValue = lista_cel.first;
     super.initState();
     //print(dropdownValue);
   }
-
+przypis(value) {
+  var _celS = value.cel;
+}
   @override
   Widget build(BuildContext context) {
     return DropdownButton<Cel>(
@@ -264,6 +273,7 @@ class _CeleState extends State<Cele> {
         // This is called when the user selects an item.
         setState(() {
           dropdownValue = value!;
+          przypis(value);
         });
       },
       items: lista_cel.map<DropdownMenuItem<Cel>>((Cel value) {
@@ -273,6 +283,7 @@ class _CeleState extends State<Cele> {
         );
       }).toList(),
     );
+
   }
 }
 
@@ -386,14 +397,15 @@ class Aktywnosc_class {
 
 class Plec {
   late String nazwa;
-  late double teza;
+  late bool teza;
+
 
   Plec(this.teza, this.nazwa);
 
   static List<Plec> list_plec() {
     return [
-      Plec(66.5, 'Kobieta'),
-      Plec(500, 'Mężczyzna'),
+      Plec(true, 'Kobieta'),
+      Plec(false, 'Mężczyzna'),
     ];
   }
 }

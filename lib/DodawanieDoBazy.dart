@@ -14,10 +14,12 @@ class DodawanieDoBazy extends StatefulWidget {
 }
 
 class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
-  final _imie = TextEditingController();
-  final _wiek = TextEditingController();
-  final _waga = TextEditingController();
-  bool _plec = true;
+  final _nazwa = TextEditingController();
+  final _waga_p = TextEditingController();
+  final _bialko = TextEditingController();
+  final _tluszcze = TextEditingController();
+  final _cukry = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _imie,
+                      controller: _nazwa,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -52,7 +54,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
-                              _imie.clear();
+                              _nazwa.clear();
                             },
                             icon: const Icon(Icons.clear)),
                       ),
@@ -61,7 +63,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _wiek,
+                      controller: _waga_p,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -69,7 +71,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
-                              _wiek.clear();
+                              _waga_p.clear();
                             },
                             icon: const Icon(Icons.clear)),
                       ),
@@ -82,7 +84,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _waga,
+                      controller: _bialko,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -90,7 +92,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
-                              _waga.clear();
+                              _bialko.clear();
                             },
                             icon: const Icon(Icons.clear)),
                       ),
@@ -103,7 +105,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _wiek,
+                      controller: _tluszcze,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -111,7 +113,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
-                              _waga.clear();
+                              _tluszcze.clear();
                             },
                             icon: const Icon(Icons.clear)),
                       ),
@@ -124,7 +126,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _wiek,
+                      controller: _cukry,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -132,7 +134,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
-                              _waga.clear();
+                              _cukry.clear();
                             },
                             icon: const Icon(Icons.clear)),
                       ),

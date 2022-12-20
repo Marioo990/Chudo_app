@@ -358,13 +358,18 @@ class User {
   late double waga;
   late double wzrost;
 
+
+
+
   User(
-      {required this.wiek,
-        required this.imie,
-        required this.waga,
-        required this.wzrost});
+     {required this.wiek,
+       required this.imie,
+       required this.waga,
+       required this.wzrost});
 
-
+ set wagaa(double w){
+  w= waga;
+}
   set dimie(String x ){
     imie = x;
   }

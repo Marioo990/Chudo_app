@@ -1,5 +1,6 @@
 
 import 'package:chudo_app/DanieWidok.dart';
+import 'package:chudo_app/Edycja.dart';
 
 
 var kalorie = 1680;
@@ -69,6 +70,9 @@ class Dieta {
     calkowite_tluszcze_7 = 7 * calkowite_tluszcze;
     calkowite_cukry_7 = 7 * calkowite_cukry;
   }
+  static List<Dieta> get dane_Dieta {
+    return [Dieta(100, 200, 300, 400, 500, 600, 700, 800)];
+  }
 }
 
 class Dane {
@@ -84,6 +88,9 @@ class Dane {
 
   Dane(this.cukry, this.tluszcze, this.bialko, this.kalorie, this.bialko_7,
       this.cukry_7, this.kalorie_7, this.tluszcze_7);
+  static List<Dane> get dane_Dane {
+    return [Dane(10, 20, 30, 40, 50, 60, 70, 80)];
+  }
 }
 
 class Produkt {
@@ -114,6 +121,20 @@ class Produkt {
     bialko = bialko / 100;
     tluszcze = tluszcze / 100;
     cukry = cukry / 100;
+  }
+  licz() {
+    int masa = 0;
+    int wzrost = 0;
+    int wiek = 0;
+    double wynik = 0 ;
+    bool wartosc_plec = true;
+    if (wartosc_plec) {
+       wynik = 655.1 + (9.563 * masa) + (5.0003 * wzrost) -
+          (6.775 * wiek);
+    } else {
+       wynik = 66.5 + (13.75 * masa) + (5.0003 * wzrost) - (6.775 * wiek);
+    }
+    return wynik ;
   }
 }
 

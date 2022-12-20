@@ -12,8 +12,29 @@ class SiedemAktualneWidok extends StatefulWidget {
 }
 
 class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
+  final _daned = Dane.dane_Dane;
+  List<Dane> _dane_Dane_ = [];
+
+  final _dieta = Dieta.dane_Dieta;
+  List<Dieta> _dane_Dieta_ = [];
+
+  @override
+  void initState() {
+    _dane_Dane_ = _daned;
+    _dane_Dieta_ = _dieta;
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+    var ckalorie7 = _dane_Dieta_.first.calkowite_kalorie_7;
+    var cbialko7 = _dane_Dieta_.first.calkowite_bialko_7;
+    var ctluszcze7 = _dane_Dieta_.first.calkowite_tluszcze_7;
+    var ccukry7 = _dane_Dieta_.first.calkowite_cukry_7;
+    var bkalorie7 = _dane_Dane_.first.kalorie_7;
+    var bbialko7 = _dane_Dane_.first.bialko_7;
+    var btluszcze7= _dane_Dane_.first.tluszcze_7;
+    var bcukry7 = _dane_Dane_.first.cukry_7;
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -40,7 +61,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(kalorieAsString_7,
+                        Text(('$bkalorie7'),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -49,7 +70,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700))),
                         Text(
-                          "/"+ calkowite_kalorieAsString_7,
+                          "/ $ckalorie7",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
@@ -107,7 +128,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                bialkoAsString_7+"g",
+                                "$bbialko7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -141,7 +162,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                calkowite_bialkoAsString_7+"g",
+                                "$cbialko7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -192,7 +213,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                cukryAsString_7+"g",
+                                "$bcukry7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -226,7 +247,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                calkowite_cukryAsString_7+"g",
+                                "$ccukry7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -277,7 +298,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                tluszczeAsString_7+"g",
+                                "$btluszcze7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -311,7 +332,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                calkowite_tluszczeAsString_7+"g",
+                                "$ctluszcze7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(

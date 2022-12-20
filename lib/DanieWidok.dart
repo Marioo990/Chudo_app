@@ -9,6 +9,7 @@ import 'package:chudo_app/Zmienne.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'Edycja.dart';
 
 
 import 'DodawanieDoBazy.dart';
@@ -24,6 +25,7 @@ class _DanieWidokState extends State<DanieWidok> {
     // zmienana do pobierania ilosci gramów posiłku
     final _liczba_gram = TextEditingController();
     final userpost = "";
+    //var ssss = _celS;
     return Scaffold(
         body: Stack(
           fit: StackFit.expand,

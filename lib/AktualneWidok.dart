@@ -11,8 +11,33 @@ class AktualneWidok extends StatefulWidget {
 }
 
 class _AktualneWidokState extends State<AktualneWidok> {
+
+  final _daned = Dane.dane_Dane;
+  List<Dane> _dane_Dane_ = [];
+
+  final _dieta = Dieta.dane_Dieta;
+  List<Dieta> _dane_Dieta_ = [];
+
+  @override
+  void initState() {
+    _dane_Dane_ = _daned;
+    _dane_Dieta_ = _dieta;
+
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
+    var ckalorie = _dane_Dieta_.first.calkowite_kalorie;
+    var cbialko = _dane_Dieta_.first.calkowite_bialko;
+    var ctluszcze = _dane_Dieta_.first.calkowite_tluszcze;
+    var ccukry = _dane_Dieta_.first.calkowite_cukry;
+    var bkalorie = _dane_Dane_.first.kalorie;
+    var bbialko = _dane_Dane_.first.bialko;
+    var btluszcze= _dane_Dane_.first.tluszcze;
+    var bcukry = _dane_Dane_.first.cukry;
+
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -39,7 +64,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(kalorieAsString,
+                        Text(('$bkalorie'),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -48,7 +73,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700))),
                         Text(
-                          "/"+ calkowite_kalorieAsString,
+                          "/"+ ('$ckalorie'),
                           textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
@@ -106,7 +131,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                bialkoAsString+"g",
+                                "$bbialko g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -140,7 +165,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                calkowite_bialkoAsString+"g",
+                                "$cbialko g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -191,7 +216,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                cukryAsString+"g",
+                                "$bcukry g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -225,7 +250,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                calkowite_cukryAsString+"g",
+                                "$ccukry g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -276,7 +301,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                tluszczeAsString+"g",
+                                "$btluszcze g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -310,7 +335,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                calkowite_tluszczeAsString+"g",
+                                "$ctluszcze g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
