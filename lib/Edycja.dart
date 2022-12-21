@@ -285,7 +285,8 @@ class _CeleState extends State<Cele> {
     //print(dropdownValue);
   }
 przypis(value) {
-  var _celS = value.cel;
+  _myUser.put('cel',value.wartosc);
+  _myUser.put(5,value.cel);
 }
   @override
   Widget build(BuildContext context) {
@@ -334,7 +335,10 @@ class _Gender extends State<Gender> {
     Plec dropdownValue = plec_list.first;
     super.initState();
   }
-
+  przypis(value) {
+    _myUser.put("plec",value.teza);
+    _myUser.put(6,value.nazwa);
+  }
   @override
   Widget build(BuildContext context) {
     return DropdownButton<Plec>(
@@ -350,6 +354,7 @@ class _Gender extends State<Gender> {
       onChanged: (Plec? value) {
         // This is called when the user selects an item.
         setState(() {
+          przypis(value);
           dropdownValue = value!;
         });
       },
@@ -380,6 +385,10 @@ class _Aktywnosc extends State<Aktywnosc> {
     Aktywnosc_class dropdownValue=aktywnosc_list.first;
     super.initState();
   }
+  przypis(value) {
+    _myUser.put('akt',value.wartosc);
+    _myUser.put(7,value.nazwa);
+  }
   @override
   Widget build(BuildContext context) {
     return DropdownButton<Aktywnosc_class>(
@@ -395,6 +404,7 @@ class _Aktywnosc extends State<Aktywnosc> {
       onChanged: (Aktywnosc_class? value) {
         // This is called when the user selects an item.
         setState(() {
+          przypis(value);
           dropdownValue = value!;
         });
       },

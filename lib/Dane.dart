@@ -31,6 +31,9 @@ class _DaneState extends State<Dane> {
     var imiee = _myUser.get(1);
     var waga = _myUser.get(2);
     var wzrost = _myUser.get(4);
+    var ccel = _myUser.get(5);
+    var plec =_myUser.get(6);
+    var aktywnosc= _myUser.get(7);
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -174,7 +177,7 @@ class _DaneState extends State<Dane> {
                           ),
                           Padding(padding: EdgeInsets.only(top: 2.0)),
                           Text(
-                            "Kobieta",
+                            "$plec",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -239,7 +242,7 @@ class _DaneState extends State<Dane> {
                           ),
                           Padding(padding: EdgeInsets.only(top: 2.0)),
                           Text(
-                            "Schudnąć",
+                            "$ccel",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -268,7 +271,7 @@ class _DaneState extends State<Dane> {
                           ),
                           Padding(padding: EdgeInsets.only(top: 2.0)),
                           Text(
-                            "Brak",
+                            "$aktywnosc",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
