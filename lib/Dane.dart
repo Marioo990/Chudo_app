@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:chudo_app/Zmienne.dart';
-
+import 'package:hive/hive.dart';
 import 'Edycja.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,8 +12,9 @@ class Dane extends StatefulWidget {
   @override
   State<Dane> createState() => _DaneState();
 }
-
+final _myUser =  Hive.box('mybox');
 class _DaneState extends State<Dane> {
+  var getuser= _myUser.get(1);
 
   final _user = User.dane_User;
   List<User> _dane_user = [];
@@ -26,9 +27,10 @@ class _DaneState extends State<Dane> {
 
   @override
   Widget build(BuildContext context) {
-    var wiek = User.dane_User.first.wiek;
-    var waga = _dane_user.first.waga;
-    var wzrost = _dane_user.first.wzrost;
+    var wiek = _myUser.get(3);
+    var imiee = _myUser.get(1);
+    var waga = _myUser.get(2);
+    var wzrost = _myUser.get(4);
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -107,7 +109,7 @@ class _DaneState extends State<Dane> {
                           ),
                           Padding(padding: EdgeInsets.only(top: 2.0)),
                           Text(
-                            _dane_user.first.imie,
+                           "$imiee",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -125,7 +127,7 @@ class _DaneState extends State<Dane> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "$wiek",
+                            "Wiek",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -362,18 +364,56 @@ class User {
 
 
   User(
-     {required this.wiek,
+      {required this.wiek,
        required this.imie,
        required this.waga,
        required this.wzrost});
 
  set wagaa(double w){
-  w= waga;
+   waga=w;
 }
   set dimie(String x ){
     imie = x;
   }
+  String get dimie =>this.imie;
   static List<User> get dane_User {
     return [User(wiek: 22, imie: "User" ,waga: 80, wzrost: 290)];
   }
+
+}class User1 {
+  late String imie;
+  late int wiek;
+  late int waga;
+  late int wzrost;
+
+
+
+
+  User1(
+      this.wiek,
+       this.imie,
+       this.waga,
+       this.wzrost);
+
+  set setwaga(int w){
+    waga = 0 ;
+    waga=w;
+  }
+  set setimie(String x ){
+    imie = x;
+  }
+  set setwiek(int x ){
+    wiek = x;
+  }
+  set setwzrost(int x ){
+    wzrost = x;
+  }
+  String get getimie=>this.imie;
+  int get getwaga=>waga;
+  int get getwiek =>wiek;
+  int get getwzrost =>wzrost;
+  static List<User> get dane_User {
+    return [User(wiek: 22, imie: "User" ,waga: 80, wzrost: 290)];
+  }
+
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:chudo_app/Zmienne.dart';
+import 'package:hive/hive.dart';
 
 import 'MyHomePage.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -17,22 +18,45 @@ class Edycja extends StatefulWidget {
   @override
   State<Edycja> createState() => _EdycjaState();
 }
-
+final _myUser =  Hive.box('mybox');
 class _EdycjaState extends State<Edycja> {
-   var _imie = TextEditingController();
+    var  _imie = TextEditingController();
   final _wiek = TextEditingController();
   final _waga = TextEditingController();
   final _tall = TextEditingController();
-// void zapis(){
-//   setState(() {
-//     final danee =[_wiek,_imie,_waga,_tall];
-//     User.dane_User = danee;
-//   });
-//  }
+
+   User1 setUser =new  User1(0,"",0,0);
+
+   void set_user(){
+     setState(() {
+       setUser.setimie=_imie.text;
+       setUser.setwaga = int.parse(_waga.text);
+
+       setUser.setwiek=int.parse(_wiek.text);
+       setUser.setwzrost=int.parse(_tall.text);
+
+     });
+
+
+   }
+   int i =1 ;
+
+   void loa(){
+     setState(() {
+
+       _myUser.put(1,setUser.getimie);
+       _myUser.put(2,setUser.getwaga);
+       _myUser.put(3,setUser.getwiek);
+       _myUser.put(4,setUser.getwzrost);
+
+     });
+   }
 
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -84,6 +108,7 @@ class _EdycjaState extends State<Edycja> {
                               onPressed: () {
                                 // przycisk do czyszcznia textfield
                                 _wiek.clear();
+
                               },
                               icon: const Icon(Icons.clear)),
                         ),
@@ -213,11 +238,16 @@ class _EdycjaState extends State<Edycja> {
                                         EdgeInsets.only(
                                             top: 12.0, bottom: 12.0))),
                                 onPressed: () {
+                                  set_user();
+                                  loa();
                                   Navigator.pushReplacement(
                                     context,
+
                                     MaterialPageRoute(
                                       builder: (context) => MyHomePage(),
+
                                     ),
+
                                   );
                                 },
                                 child: Text(
