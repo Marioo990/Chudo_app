@@ -1,5 +1,6 @@
 
 
+import 'package:chudo_app/Powodzenie.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -213,6 +214,12 @@ class _DanieWidokState extends State<DanieWidok> {
                                       dodaj();
                                       load_w();
                                       _liczba_gram.clear();
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Powodzenie(),
+                                        ),
+                                      );
                                     });
 
                               },

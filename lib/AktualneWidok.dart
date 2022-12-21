@@ -17,6 +17,9 @@ class _AktualneWidokState extends State<AktualneWidok> {
 
   @override
   Widget build(BuildContext context) {
+
+
+
     var ckalorie = _myUser.get(13);
     var cbialko = _myUser.get(14);
     var ctluszcze = _myUser.get(15);
@@ -37,6 +40,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
         var bialko = bbialko.toInt();
         var tluszcze = btluszcze.toInt();
         var cukry = bcukry.toInt();
+
       void kasuj(){
          _myUser.put(21,0.0);
          _myUser.put(22,0.0);
@@ -46,16 +50,19 @@ class _AktualneWidokState extends State<AktualneWidok> {
          _myUser.put(26,0.0);
          _myUser.put(27,0.0);
          _myUser. put(28,0.0);
-         _myUser.put(31 ,0.0 );
-         _myUser.put(32 ,0.0 );
-         _myUser.put(33  ,0.0);
-         _myUser.put(34,0.0 );
-         _myUser.put(41 ,0.0 );
-         _myUser.put(42 ,0.0 );
-         _myUser.put(43  ,0.0);
-         _myUser.put(44,0.0 );
-      }
 
+      }
+    void kasuj7(){
+       _myUser.put(31 ,0.0 );
+       _myUser.put(32 ,0.0 );
+       _myUser.put(33  ,0.0);
+       _myUser.put(34,0.0 );
+       _myUser.put(41 ,0.0 );
+       _myUser.put(42 ,0.0 );
+       _myUser.put(43  ,0.0);
+       _myUser.put(44,0.0 );
+    }
+    kasuj7();
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -73,6 +80,8 @@ class _AktualneWidokState extends State<AktualneWidok> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+
+
                 Padding(padding: EdgeInsets.only(top: 25.0),
                     ),
                 CircleAvatar(
@@ -396,8 +405,6 @@ class _AktualneWidokState extends State<AktualneWidok> {
                             ),
                           ),
                         ))
-
-
                 ),
               ],
             )),
