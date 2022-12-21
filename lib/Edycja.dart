@@ -1,16 +1,11 @@
-import 'dart:async';
-import 'package:chudo_app/Zmienne.dart';
 import 'package:hive/hive.dart';
 import 'MyHomePage.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-import 'package:chudo_app/Zmienne.dart';
 import 'Dane.dart';
-import 'main.dart';
+
 
 
 class Edycja extends StatefulWidget {

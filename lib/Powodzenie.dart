@@ -1,7 +1,3 @@
-import 'dart:async';
-import 'package:chudo_app/Login.dart';
-import 'package:chudo_app/Zmienne.dart';
-
 import 'MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -1,11 +1,8 @@
-import 'dart:async';
 import 'package:chudo_app/Powodzenie.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:chudo_app/Zmienne.dart';
-import 'MyHomePage.dart';
 
 
 

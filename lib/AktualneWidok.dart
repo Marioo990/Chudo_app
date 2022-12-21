@@ -1,10 +1,8 @@
-import 'dart:async';
 import 'package:hive/hive.dart';
 import 'SiedemAktualneWidok.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Zmienne.dart';
-import 'main.dart';
+
 class AktualneWidok extends StatefulWidget {
   @override
   State<AktualneWidok> createState() => _AktualneWidokState();

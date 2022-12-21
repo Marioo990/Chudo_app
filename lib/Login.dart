@@ -1,11 +1,7 @@
 import 'package:chudo_app/MyHomePage.dart';
-
-import 'PowitalnyWidok.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'Forgot.dart';
-
 import 'Register.dart';
 
 class LoginPage extends StatefulWidget {

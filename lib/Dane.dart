@@ -1,12 +1,7 @@
-import 'dart:async';
-
-import 'package:chudo_app/Zmienne.dart';
 import 'package:hive/hive.dart';
 import 'Edycja.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'main.dart';
 
 class Dane extends StatefulWidget {
   @override

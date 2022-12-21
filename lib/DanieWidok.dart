@@ -1,21 +1,12 @@
-
-
 import 'package:chudo_app/Powodzenie.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
 import 'package:chudo_app/Zmienne.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'Edycja.dart';
 import 'package:hive/hive.dart';
-
-
 import 'DodawanieDoBazy.dart';
-import 'main.dart';
+
 class DanieWidok extends StatefulWidget {
   @override
   State<DanieWidok> createState() => _DanieWidokState();
