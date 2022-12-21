@@ -1,18 +1,40 @@
 import 'dart:async';
 
+import 'MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Zmienne.dart';
 import 'main.dart';
-
-class DaneWidok extends StatefulWidget {
+class SiedemAktualneWidok extends StatefulWidget {
   @override
-  State<DaneWidok> createState() => _DaneWidokState();
+  State<SiedemAktualneWidok> createState() => _SiedemAktualneWidokState();
 }
 
-class _DaneWidokState extends State<DaneWidok> {
+class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
+  final _daned = Dane.dane_Dane;
+  List<Dane> _dane_Dane_ = [];
+
+  final _dieta = Dieta.dane_Dieta;
+  List<Dieta> _dane_Dieta_ = [];
+
+  @override
+  void initState() {
+    _dane_Dane_ = _daned;
+    _dane_Dieta_ = _dieta;
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+    var ckalorie7 = _dane_Dieta_.first.calkowite_kalorie_7;
+    var cbialko7 = _dane_Dieta_.first.calkowite_bialko_7;
+    var ctluszcze7 = _dane_Dieta_.first.calkowite_tluszcze_7;
+    var ccukry7 = _dane_Dieta_.first.calkowite_cukry_7;
+    var bkalorie7 = _dane_Dane_.first.kalorie_7;
+    var bbialko7 = _dane_Dane_.first.bialko_7;
+    var btluszcze7= _dane_Dane_.first.tluszcze_7;
+    var bcukry7 = _dane_Dane_.first.cukry_7;
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -25,124 +47,66 @@ class _DaneWidokState extends State<DaneWidok> {
 
 
         ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: 50,
-            left: 40,
-            right: 40,
-            bottom: 500,
-
-          ),
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(6.0),
-              child: Container(
-                color: Colors.white,
-                padding: EdgeInsets.all(10.0),
-                height: 38.0,
-                child: IntrinsicHeight(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(
-                        alignment: Alignment.centerLeft,
-                        image: AssetImage('icons/happy.png'),
-                      ),
-                      Padding(padding: EdgeInsets.only(left: 8.0)),
-                      Text(
-                        "Twoje Dane",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                                fontSize: 25.0,
-                                height: 1.2,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600)),
-                      )
-                    ],
-                  ),
-                ),
-              )),
-        ),
         Align(
             alignment: FractionalOffset.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(padding: EdgeInsets.only(top: 45.0)),
-
-
-
-
-                IntrinsicHeight(
-                    child: Row(
+                Padding(padding: EdgeInsets.only(top: 25.0),
+                ),
+                CircleAvatar(
+                  radius: 91.0,
+                  backgroundColor: Colors.white,
+                  child: Center(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Imię",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                "Adrian",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              )
-                            ],
-                          ),
+                        Text(('$bkalorie7'),
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 40.0,
+                                    height: 1.2,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700))),
+                        Text(
+                          "/ $ckalorie7",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                  fontSize: 26.0,
+                                  height: 1.2,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700)),
                         ),
-
-                        Container(
-                          width: 130,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Wiek",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 25.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              Padding(padding: EdgeInsets.only(top: 2.0)),
-                              Text(
-                                "20 Lat",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    textStyle: TextStyle(
-                                        fontSize: 20.0,
-                                        height: 1.2,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
-                              ),
-
-
-                            ],
-                          ),
-                        )
+                        Text(
+                          "Kcal ",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                  fontSize: 16.0,
+                                  height: 1.2,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700)),
+                        ),
                       ],
-                    )),
+                    ),
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(top: 14.0)),
 
-                Padding(padding: EdgeInsets.only(top: 55.0)),
+                Text(
+                  "Białko",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                          fontSize: 24.0,
+                          height: 1.2,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400)),
+                ),
+
+                Padding(padding: EdgeInsets.only(top: 15.0)),
                 IntrinsicHeight(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -153,55 +117,59 @@ class _DaneWidokState extends State<DaneWidok> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Płeć",
+                                "Brakuje",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 25.0,
+                                        fontSize: 14.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
+                                        fontWeight: FontWeight.w300)),
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "Mężczyzna",
+                                "$bbialko7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 20.0,
+                                        fontSize: 26.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
+                                        fontWeight: FontWeight.w700)),
                               )
                             ],
                           ),
                         ),
-
+                        VerticalDivider(
+                          width: 48,
+                          color: Colors.white,
+                          thickness: 1,
+                        ),
                         Container(
                           width: 130,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "Waga",
+                                "Całkowite",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 25.0,
+                                        fontSize: 14.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
+                                        fontWeight: FontWeight.w300)),
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "98Kg",
+                                "$cbialko7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 20.0,
+                                        fontSize: 26.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
+                                        fontWeight: FontWeight.w700)),
                               ),
 
 
@@ -210,10 +178,20 @@ class _DaneWidokState extends State<DaneWidok> {
                         )
                       ],
                     )),
-                Padding(padding: EdgeInsets.only(top: 55.0)),
+                Padding(padding: EdgeInsets.only(top: 15.0)),
 
 
-
+                Text(
+                  "Węglowodany",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                          fontSize: 24.0,
+                          height: 1.2,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400)),
+                ),
+                Padding(padding: EdgeInsets.only(top: 15.0)),
                 IntrinsicHeight(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -224,55 +202,59 @@ class _DaneWidokState extends State<DaneWidok> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Cel",
+                                "Brakuje",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 25.0,
+                                        fontSize: 14.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
+                                        fontWeight: FontWeight.w300)),
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "Schudnąć",
+                                "$bcukry7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 20.0,
+                                        fontSize: 26.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
+                                        fontWeight: FontWeight.w700)),
                               )
                             ],
                           ),
                         ),
-
+                        VerticalDivider(
+                          width: 48,
+                          color: Colors.white,
+                          thickness: 1,
+                        ),
                         Container(
                           width: 130,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "Aktywność",
+                                "Całkowite",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 25.0,
+                                        fontSize: 14.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700)),
+                                        fontWeight: FontWeight.w300)),
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "Bieganie",
+                                "$ccukry7 g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
-                                        fontSize: 20.0,
+                                        fontSize: 26.0,
                                         height: 1.2,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w500)),
+                                        fontWeight: FontWeight.w700)),
                               ),
 
 
@@ -281,10 +263,95 @@ class _DaneWidokState extends State<DaneWidok> {
                         )
                       ],
                     )),
-                Padding(padding: EdgeInsets.only(top: 48.0),
+                Padding(padding: EdgeInsets.only(top: 15.0)),
+
+
+                Text(
+                  "Tłuszcze",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                          fontSize: 24.0,
+                          height: 1.2,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400)),
+                ),
+                Padding(padding: EdgeInsets.only(top: 15.0)),
+                IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 130,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "Brakuje",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                        fontSize: 14.0,
+                                        height: 1.2,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w300)),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 2.0)),
+                              Text(
+                                "$btluszcze7 g",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                        fontSize: 26.0,
+                                        height: 1.2,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700)),
+                              )
+                            ],
+                          ),
+                        ),
+                        VerticalDivider(
+                          width: 48,
+                          color: Colors.white,
+                          thickness: 1,
+                        ),
+                        Container(
+                          width: 130,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Całkowite",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                        fontSize: 14.0,
+                                        height: 1.2,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w300)),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 2.0)),
+                              Text(
+                                "$ctluszcze7 g",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                        fontSize: 26.0,
+                                        height: 1.2,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700)),
+                              ),
+
+
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
+                Padding(padding: EdgeInsets.only(top: 20.0),
                     child: Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.only(left: 40.0, right: 40.0),
+                        margin: EdgeInsets.only(left: 100.0, right: 100.0),
                         child: SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
@@ -294,14 +361,21 @@ class _DaneWidokState extends State<DaneWidok> {
                                 padding: MaterialStateProperty.all(
                                     EdgeInsets.only(top: 12.0, bottom: 12.0))),
                             onPressed: () {
-
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyHomePage(),
+                                ),
+                              );
                             },
                             child: Text(
-                              'Edytuj Dane',
+                              'Wróć na dane z 1 dnia ',
                               style: TextStyle(fontSize: 16.0, color: Colors.black),
                             ),
                           ),
                         ))
+
+
                 ),
               ],
             )),

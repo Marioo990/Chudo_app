@@ -1,8 +1,9 @@
 import 'dart:async';
 
+import 'SiedemAktualneWidok.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'Zmienne.dart';
 import 'main.dart';
 class AktualneWidok extends StatefulWidget {
   @override
@@ -10,8 +11,33 @@ class AktualneWidok extends StatefulWidget {
 }
 
 class _AktualneWidokState extends State<AktualneWidok> {
+
+  final _daned = Dane.dane_Dane;
+  List<Dane> _dane_Dane_ = [];
+
+  final _dieta = Dieta.dane_Dieta;
+  List<Dieta> _dane_Dieta_ = [];
+
+  @override
+  void initState() {
+    _dane_Dane_ = _daned;
+    _dane_Dieta_ = _dieta;
+
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
+    var ckalorie = _dane_Dieta_.first.calkowite_kalorie;
+    var cbialko = _dane_Dieta_.first.calkowite_bialko;
+    var ctluszcze = _dane_Dieta_.first.calkowite_tluszcze;
+    var ccukry = _dane_Dieta_.first.calkowite_cukry;
+    var bkalorie = _dane_Dane_.first.kalorie;
+    var bbialko = _dane_Dane_.first.bialko;
+    var btluszcze= _dane_Dane_.first.tluszcze;
+    var bcukry = _dane_Dane_.first.cukry;
+
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -38,7 +64,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("1240 ",
+                        Text(('$bkalorie'),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -47,7 +73,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700))),
                         Text(
-                          "/3500 ",
+                          "/"+ ('$ckalorie'),
                           textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
@@ -105,7 +131,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "40g",
+                                "$bbialko g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -139,7 +165,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "350g",
+                                "$cbialko g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -190,7 +216,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "40g",
+                                "$bcukry g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -224,7 +250,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "350g",
+                                "$ccukry g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -275,7 +301,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "50g",
+                                "$btluszcze g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -309,7 +335,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "400g",
+                                "$ctluszcze g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -325,7 +351,36 @@ class _AktualneWidokState extends State<AktualneWidok> {
                         )
                       ],
                     )),
-                Padding(padding: EdgeInsets.only(top: 48.0)),
+                Padding(padding: EdgeInsets.only(top: 20.0),
+                    child: Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(left: 100.0, right: 100.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                MaterialStateProperty.all(Colors.white),
+                                padding: MaterialStateProperty.all(
+                                    EdgeInsets.only(top: 12.0, bottom: 12.0))),
+                            onPressed: () {
+
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SiedemAktualneWidok(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Przejdź   na dane z 7-dni',
+                              style: TextStyle(fontSize: 16.0, color: Colors.black),
+                            ),
+                          ),
+                        ))
+
+
+                ),
               ],
             )),
       ]),

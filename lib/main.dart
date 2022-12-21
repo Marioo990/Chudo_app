@@ -1,31 +1,42 @@
 
 
-import 'package:flutter/material.dart';
-import 'MyHomePage.dart';
+import 'package:chudo_app/MyHomePage.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'PowitalnyWidok.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 
+import 'Login.dart';
 
-void main() {
+Future<void> main() async {
+  //inicjalizacja hive
+  await Hive.initFlutter();
+ //otwarcie box'a
+  var box =await Hive.openBox('mybox');
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-
-
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: Strings.appTitle,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue[900],
       ),
-      home:  PowitalnyWidok(),
+      home: PowitalnyWidok(),
     );
   }
+
 }
 class Strings{
   static const String appTitle = 'Chudo App';

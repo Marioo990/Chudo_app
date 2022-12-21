@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'package:chudo_app/Login.dart';
+import 'package:chudo_app/Zmienne.dart';
+
 import 'MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -70,11 +73,11 @@ class _PowitalnyWidokState extends State<PowitalnyWidok> {
                         padding: MaterialStateProperty.all(
                             EdgeInsets.only(top: 12.0, bottom: 12.0))),
                     onPressed: () {
-                      // todo ask for permission
+
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MyHomePage()));
+                              builder: (context) => LoginPage()));
                     },
                     child: Text(
                       'Zaczynajmy',
