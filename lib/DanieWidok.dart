@@ -10,6 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'Edycja.dart';
+import 'package:hive/hive.dart';
 
 
 import 'DodawanieDoBazy.dart';
@@ -20,10 +21,76 @@ class DanieWidok extends StatefulWidget {
 }
 
 class _DanieWidokState extends State<DanieWidok> {
+  final _myUser =  Hive.box('mybox');
+  final _liczba_gram = TextEditingController();
+  var waga=0.0;
+  var bialko=0.0;
+  var kalorie=0.0;
+  var tluszcze=0.0;
+  var cukry=0.0;
+  var bialko7=0.0;
+  var kalorie7=0.0;
+  var tluszcze7=0.0;
+  var cukry7=0.0;
+  void licz_wszystko(){
+    setState(() {
+      waga=double.parse(_liczba_gram.text);
+      kalorie=_myUser.get(51);
+      bialko=_myUser.get(52);
+      tluszcze =_myUser.get(53);
+      cukry=_myUser.get(54);
+      kalorie= kalorie/100;
+      bialko=bialko/100;
+      tluszcze=tluszcze/100;
+      cukry-cukry/100;
+      kalorie=kalorie*waga;
+      bialko=bialko*waga;
+      tluszcze=tluszcze*waga;
+      cukry-cukry*waga;
+    });
+
+  }
+  void dodaj(){
+    setState(() {
+      var add_kalorie = _myUser.get(25);
+      var add_bialko = _myUser.get(26);
+      var add_tluszcze= _myUser.get(27);
+      var add_cukry = _myUser.get(28);
+      var chwilowe_kalorie7 =_myUser.get(31);
+      var chwilowe_bialo7 =_myUser.get(32);
+      var chwilowe_tluszcze7 =_myUser.get(33);
+      var chwilowe_cukry7 =_myUser.get(34);
+      kalorie = kalorie + add_kalorie;
+      bialko = bialko + add_bialko;
+      tluszcze = tluszcze+ add_tluszcze;
+      cukry=cukry + add_cukry;
+      cukry=cukry + add_cukry;
+      kalorie7=chwilowe_kalorie7+kalorie;
+      bialko7=chwilowe_bialo7+bialko;
+      tluszcze7=chwilowe_tluszcze7+tluszcze;
+      cukry7=chwilowe_cukry7+cukry;
+    });
+
+  }
+  void load_w(){
+    setState(() {
+
+      _myUser.put(21,kalorie);
+      _myUser.put(22,bialko);
+      _myUser.put(23,tluszcze);
+      _myUser.put(24,cukry);
+      _myUser.put(41,kalorie7 );
+      _myUser.put(42,bialko7 );
+      _myUser.put(43,tluszcze7);
+      _myUser.put(44,cukry7 );
+
+    });
+  }
   @override
+
   Widget build(BuildContext context) {
     // zmienana do pobierania ilosci gramów posiłku
-    final _liczba_gram = TextEditingController();
+
     final userpost = "";
     //var ssss = _celS;
     return Scaffold(
@@ -140,6 +207,14 @@ class _DanieWidokState extends State<DanieWidok> {
                                       EdgeInsets.only(top: 12.0, bottom: 12.0))),
                               onPressed: () {
 
+                                    setState(() {
+
+                                      licz_wszystko();
+                                      dodaj();
+                                      load_w();
+                                      _liczba_gram.clear();
+                                    });
+
                               },
                               child: Text(
                                 'Dodaj produkt do diety',
@@ -194,8 +269,7 @@ class Jedzenie extends StatefulWidget {
 
 class _jedzenie extends State<Jedzenie> {
   late int idd;
-
-
+  final _myUser =  Hive.box('mybox');
 
 
   final _produkt = Produkt.produktList();
@@ -208,7 +282,13 @@ class _jedzenie extends State<Jedzenie> {
     Produkt dropdownValue = produkt_list.first;
     super.initState();
   }
+  void przypis(value){
+    _myUser.put(51,value.kalorie);
+    _myUser.put(52,value.bialko);
+    _myUser.put(53,value.tluszcze);
+    _myUser.put(54,value.cukry);
 
+  }
   @override
   Widget build(BuildContext context) {
     return DropdownButton<Produkt>(
@@ -233,8 +313,10 @@ class _jedzenie extends State<Jedzenie> {
       onChanged: (Produkt? value) {
         // This is called when the user selects an item.
         setState(() {
+
           dropdownValue = value!;
-          //przekaz(value);
+          przypis(value);
+
         });
       },
       items: produkt_list.map<DropdownMenuItem<Produkt>>((Produkt value) {

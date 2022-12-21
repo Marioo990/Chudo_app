@@ -32,9 +32,9 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
     bbialko7  = _myUser.get(42);
     btluszcze7= _myUser.get(43);
     bcukry7   =_myUser.get(44);
-    _myUser.put(31,bkalorie7 );
-    _myUser.put(32,bbialko7 );
-    _myUser.put(33,btluszcze7);
+    _myUser.put(31 ,bkalorie7 );
+    _myUser.put(32 ,bbialko7 );
+    _myUser.put(33  ,btluszcze7);
     _myUser.put(34,bcukry7 );
    var kalorie= bkalorie7.toInt();
    var bialko = bbialko7.toInt();
