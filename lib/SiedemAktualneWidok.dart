@@ -13,19 +13,7 @@ class SiedemAktualneWidok extends StatefulWidget {
 
 class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
   final _myUser =  Hive.box('mybox');
-  final _daned = Dane.dane_Dane;
-  List<Dane> _dane_Dane_ = [];
 
-  final _dieta = Dieta.dane_Dieta;
-  List<Dieta> _dane_Dieta_ = [];
-
-  @override
-  void initState() {
-    _dane_Dane_ = _daned;
-    _dane_Dieta_ = _dieta;
-
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     var ckalorie7 = _myUser.get(13);
@@ -36,10 +24,22 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
      cbialko7   =cbialko7  *7;
      ctluszcze7 =ctluszcze7*7;
      ccukry7    =ccukry7   *7;
-    var bkalorie7 = _dane_Dane_.first.kalorie_7;
-    var bbialko7 = _dane_Dane_.first.bialko_7;
-    var btluszcze7= _dane_Dane_.first.tluszcze_7;
-    var bcukry7 = _dane_Dane_.first.cukry_7;
+    var bkalorie7 = 0.0 ;
+    var bbialko7 =  0.0 ;
+    var btluszcze7= 0.0 ;
+    var bcukry7 = 0.0 ;
+    bkalorie7 = _myUser.get(41);
+    bbialko7  = _myUser.get(42);
+    btluszcze7= _myUser.get(43);
+    bcukry7   =_myUser.get(44);
+    _myUser.put(31,bkalorie7 );
+    _myUser.put(32,bbialko7 );
+    _myUser.put(33,btluszcze7);
+    _myUser.put(34,bcukry7 );
+   var kalorie= bkalorie7.toInt();
+   var bialko = bbialko7.toInt();
+   var tluszcze = btluszcze7.toInt();
+   var cukry = bcukry7.toInt();
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -66,7 +66,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(('$bkalorie7'),
+                        Text(('$kalorie'),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -75,7 +75,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700))),
                         Text(
-                          "/ $ckalorie7",
+                          "/ $kalorie",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
@@ -133,7 +133,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "$bbialko7 g",
+                                "$bialko g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -218,7 +218,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "$bcukry7 g",
+                                "$cukry g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -303,7 +303,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "$btluszcze7 g",
+                                "$tluszcze g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(

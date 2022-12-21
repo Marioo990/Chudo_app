@@ -33,6 +33,10 @@ class _AktualneWidokState extends State<AktualneWidok> {
         _myUser.put(26,bbialko );
         _myUser.put(27,btluszcze);
         _myUser.put(28,bcukry );
+        var kalorie = bkalorie.toInt();
+        var bialko = bbialko.toInt();
+        var tluszcze = btluszcze.toInt();
+        var cukry = bcukry.toInt();
 
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
@@ -60,7 +64,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(('$bkalorie'),
+                        Text(('$kalorie'),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -127,7 +131,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "$bbialko g",
+                                "$bialko g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -212,7 +216,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "$bcukry g",
+                                "$cukry g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -297,7 +301,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
                               ),
                               Padding(padding: EdgeInsets.only(top: 2.0)),
                               Text(
-                                "$btluszcze g",
+                                "$tluszcze g",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(

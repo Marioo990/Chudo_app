@@ -19,6 +19,10 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
   var kalorie=0.0;
   var tluszcze=0.0;
   var cukry=0.0;
+  var bialko7=0.0;
+  var kalorie7=0.0;
+  var tluszcze7=0.0;
+  var cukry7=0.0;
 
   final _myUser =  Hive.box('mybox');
   final _waga = TextEditingController();
@@ -59,10 +63,19 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
     var add_bialko = _myUser.get(22);
     var add_tluszcze= _myUser.get(23);
     var add_cukry = _myUser.get(24);
+    var chwilowe_kalorie7 =_myUser.get(31);
+    var chwilowe_bialo7 =_myUser.get(32);
+    var chwilowe_tluszcze7 =_myUser.get(33);
+    var chwilowe_cukry7 =_myUser.get(34);
     kalorie = kalorie + add_kalorie;
     bialko = bialko + add_bialko;
     tluszcze = tluszcze+ add_tluszcze;
     cukry=cukry + add_cukry;
+    cukry=cukry + add_cukry;
+    kalorie7=chwilowe_kalorie7+kalorie;
+    bialko7=chwilowe_bialo7+bialko;
+    tluszcze7=chwilowe_tluszcze7+tluszcze;
+    cukry7=chwilowe_cukry7+cukry;
 
   }
   void load_w(){
@@ -72,6 +85,10 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
       _myUser.put(22,bialko);
       _myUser.put(23,tluszcze);
       _myUser.put(24,cukry);
+      _myUser.put(41,kalorie7 );
+      _myUser.put(42,bialko7 );
+      _myUser.put(43,tluszcze7);
+      _myUser.put(44,cukry7 );
 
     });
   }
