@@ -1,8 +1,8 @@
 
 import 'package:chudo_app/DanieWidok.dart';
 import 'package:chudo_app/Edycja.dart';
-
-
+import 'package:hive/hive.dart';
+final _myUser =  Hive.box('mybox');
 class Dieta {
   late double calkowite_kalorie;
   late double calkowite_bialko;
@@ -54,6 +54,7 @@ class Dane {
 }
 
 class Produkt {
+
   late String nazwa;
   late double kalorie;
   late double bialko;
@@ -82,20 +83,7 @@ class Produkt {
     tluszcze = tluszcze / 100;
     cukry = cukry / 100;
   }
-  licz() {
-    int masa = 0;
-    int wzrost = 0;
-    int wiek = 0;
-    double wynik = 0 ;
-    bool wartosc_plec = true;
-    if (wartosc_plec) {
-       wynik = 655.1 + (9.563 * masa) + (5.0003 * wzrost) -
-          (6.775 * wiek);
-    } else {
-       wynik = 66.5 + (13.75 * masa) + (5.0003 * wzrost) - (6.775 * wiek);
-    }
-    return wynik ;
-  }
+
 }
 
 

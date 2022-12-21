@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:hive/hive.dart';
 import 'SiedemAktualneWidok.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +11,7 @@ class AktualneWidok extends StatefulWidget {
 }
 
 class _AktualneWidokState extends State<AktualneWidok> {
-
+  final _myUser =  Hive.box('mybox');
   final _daned = Dane.dane_Dane;
   List<Dane> _dane_Dane_ = [];
 
@@ -29,10 +29,10 @@ class _AktualneWidokState extends State<AktualneWidok> {
 
   @override
   Widget build(BuildContext context) {
-    var ckalorie = _dane_Dieta_.first.calkowite_kalorie;
-    var cbialko = _dane_Dieta_.first.calkowite_bialko;
-    var ctluszcze = _dane_Dieta_.first.calkowite_tluszcze;
-    var ccukry = _dane_Dieta_.first.calkowite_cukry;
+    var ckalorie = _myUser.get(13);
+    var cbialko = _myUser.get(14);
+    var ctluszcze = _myUser.get(15);
+    var ccukry = _myUser.get(16);
     var bkalorie = _dane_Dane_.first.kalorie;
     var bbialko = _dane_Dane_.first.bialko;
     var btluszcze= _dane_Dane_.first.tluszcze;

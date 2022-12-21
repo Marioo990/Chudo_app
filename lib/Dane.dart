@@ -90,7 +90,7 @@ class _DaneState extends State<Dane> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(padding: EdgeInsets.only(top: 45.0)),
+                Padding(padding: EdgeInsets.only(top: 65.0)),
                 IntrinsicHeight(
                     child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

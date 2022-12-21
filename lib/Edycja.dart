@@ -52,6 +52,40 @@ class _EdycjaState extends State<Edycja> {
      });
    }
 
+    void licz() {
+     double masa =_myUser.get(2).toDouble();
+     double wzrost =_myUser.get(4).toDouble();
+     double wiek =_myUser.get(3).toDouble();
+     double cel =_myUser.get(10).toDouble();
+     double aktywnosc = _myUser.get(12).toDouble();
+     double bialko =0 ;
+     double cukry =0 ;
+     double tluszcze =0 ;
+      var wynik = 0.0 ;
+      bool wartosc_plec = _myUser.get(11);
+      if (wartosc_plec) {
+        wynik = 655.1 + (9.563 * masa) + (5.0003 * wzrost)
+            - (6.775 * wiek)+ (aktywnosc)+(cel);
+
+      } else {
+        wynik = 66.5 + (13.75 * masa) + (5.0003 * wzrost)
+            - (6.775 * wiek) + (aktywnosc)+(cel);
+
+      }
+      bialko= 0.25*wynik;    bialko = bialko/4;
+      tluszcze= 0.2 *wynik;  cukry=cukry/4;
+      cukry = 0.55 *wynik;   tluszcze=tluszcze/9;
+     int b= bialko.round();
+     int t =tluszcze.round();
+     int c = cukry.round();
+     int wwynik = wynik.round();
+
+      _myUser.put(13,wwynik);
+     _myUser.put(14,b);
+     _myUser.put(15,t);
+     _myUser.put(16,c);
+
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -240,6 +274,7 @@ class _EdycjaState extends State<Edycja> {
                                 onPressed: () {
                                   set_user();
                                   loa();
+                                  licz();
                                   Navigator.pushReplacement(
                                     context,
 
@@ -285,7 +320,7 @@ class _CeleState extends State<Cele> {
     //print(dropdownValue);
   }
 przypis(value) {
-  _myUser.put('cel',value.wartosc);
+  _myUser.put(10,value.wartosc);
   _myUser.put(5,value.cel);
 }
   @override
@@ -304,6 +339,7 @@ przypis(value) {
         // This is called when the user selects an item.
         setState(() {
           dropdownValue = value!;
+
           przypis(value);
         });
       },
@@ -336,7 +372,7 @@ class _Gender extends State<Gender> {
     super.initState();
   }
   przypis(value) {
-    _myUser.put("plec",value.teza);
+    _myUser.put(11,value.teza);
     _myUser.put(6,value.nazwa);
   }
   @override
@@ -386,7 +422,7 @@ class _Aktywnosc extends State<Aktywnosc> {
     super.initState();
   }
   przypis(value) {
-    _myUser.put('akt',value.wartosc);
+    _myUser.put(12,value.wartosc);
     _myUser.put(7,value.nazwa);
   }
   @override
@@ -426,11 +462,11 @@ class Aktywnosc_class {
 
   static List<Aktywnosc_class> list_Aktywnosc() {
     return [
-      Aktywnosc_class(nazwa: 'Bieganie', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Bieganie', wartosc: 400),
       Aktywnosc_class(nazwa: 'Siłownia', wartosc: 500),
-      Aktywnosc_class(nazwa: 'Tryb siedzący', wartosc: 500),
-      Aktywnosc_class(nazwa: 'Spacer', wartosc: 500),
-      Aktywnosc_class(nazwa: 'Piłka nożna', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Tryb siedzący', wartosc: 0.0),
+      Aktywnosc_class(nazwa: 'Spacer', wartosc: 100),
+      Aktywnosc_class(nazwa: 'Piłka nożna', wartosc: 600),
     ];
   }
 }
@@ -454,15 +490,15 @@ class Plec {
 class Cel {
   late String cel;
 
-  late int wartosc = 1;
+  late double wartosc = 1.0;
 
   Cel({required this.cel, required this.wartosc});
 
   static List<Cel> cel_lista() {
     return [
-      Cel(cel: 'Schudnąć', wartosc: -500),
-      Cel(cel: 'utrzymać wagę', wartosc: 0),
-      Cel(cel: 'przytyć', wartosc: 500),
+      Cel(cel: 'Schudnąć', wartosc: -500.0),
+      Cel(cel: 'utrzymać wagę', wartosc: 0.0),
+      Cel(cel: 'przytyć', wartosc: 500.0),
     ];
   }
 }
