@@ -1,9 +1,9 @@
 import 'dart:async';
-
+import 'package:hive/hive.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:chudo_app/Zmienne.dart';
 import 'MyHomePage.dart';
 
 
@@ -14,15 +14,70 @@ class DodawanieDoBazy extends StatefulWidget {
 }
 
 class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
-  final _nazwa = TextEditingController();
-  final _waga_p = TextEditingController();
+  var waga=0.0;
+  var bialko=0.0;
+  var kalorie=0.0;
+  var tluszcze=0.0;
+  var cukry=0.0;
+
+  final _myUser =  Hive.box('mybox');
+  final _waga = TextEditingController();
+  final _kcal = TextEditingController();
   final _bialko = TextEditingController();
   final _tluszcze = TextEditingController();
   final _cukry = TextEditingController();
 
 
+      Produkt1 setProdukt = new Produkt1( 140, 50  ,  2,  23, 12,);
+    void pobranie_danych(){
+      setState(() {
+        setProdukt.setwaga=double.parse(_waga.text);
+        setProdukt.setkalorie= double.parse(_kcal.text);
+        setProdukt.setbialko=double.parse(_bialko.text);
+        setProdukt.settluszcze=double.parse(_tluszcze.text);
+        setProdukt.setcukry=double.parse(_cukry.text);
+      });
+    }
+  void licz_wszystko(){
+   waga=double.parse(_waga.text);
+   kalorie= double.parse(_kcal.text);
+   bialko=double.parse(_bialko.text);
+   tluszcze=double.parse(_tluszcze.text);
+   cukry=double.parse(_cukry.text);
+   kalorie= kalorie/100;
+   bialko=bialko/100;
+   tluszcze=tluszcze/100;
+   cukry-cukry/100;
+   kalorie=kalorie*waga;
+   bialko=bialko*waga;
+   tluszcze=tluszcze*waga;
+   cukry-cukry*waga;
+
+  }
+  void dodaj(){
+    var add_kalorie = _myUser.get(21);
+    var add_bialko = _myUser.get(22);
+    var add_tluszcze= _myUser.get(23);
+    var add_cukry = _myUser.get(24);
+    kalorie = kalorie + add_kalorie;
+    bialko = bialko + add_bialko;
+    tluszcze = tluszcze+ add_tluszcze;
+    cukry=cukry + add_cukry;
+
+  }
+  void load_w(){
+    setState(() {
+
+      _myUser.put(21,kalorie);
+      _myUser.put(22,bialko);
+      _myUser.put(23,tluszcze);
+      _myUser.put(24,cukry);
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -45,25 +100,28 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _nazwa,
+                      controller: _waga,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: ("Podaj nazwę produktu"),
-                        border: const OutlineInputBorder(),
+                        hintText: ("Podaj wagę w gramach"),
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
-                              _nazwa.clear();
+                              _waga.clear();
                             },
                             icon: const Icon(Icons.clear)),
                       ),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly,
+                      ],
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 30),
                     child: TextField(
-                      controller: _waga_p,
+                      controller: _kcal,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -71,7 +129,7 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                         suffixIcon: IconButton(
                             onPressed: () {
                               // przycisk do czyszcznia textfield
-                              _waga_p.clear();
+                              _kcal.clear();
                             },
                             icon: const Icon(Icons.clear)),
                       ),
@@ -157,6 +215,13 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
                                   padding: MaterialStateProperty.all(
                                       EdgeInsets.only(top: 12.0, bottom: 12.0))),
                               onPressed: () {
+                                pobranie_danych();
+
+                                licz_wszystko();
+                                dodaj();
+                                load_w();
+
+
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
@@ -182,3 +247,50 @@ class _DodawanieDoBazyState extends State<DodawanieDoBazy> {
 }
 
 
+class Produkt1 {
+  late double waga;
+  late double kalorie;
+  late double bialko;
+  late double tluszcze;
+  late double cukry;
+
+
+
+  Produkt1(
+      this.waga,
+      this.kalorie,
+      this.bialko,
+      this.tluszcze,
+      this.cukry,
+
+      );
+
+
+  set setwaga(double x){
+    waga=x;
+  }
+
+  set setkalorie(double x){
+    kalorie = x;
+  }
+  set setbialko (double x){
+    bialko= x;
+  }
+  set settluszcze (double x){
+    tluszcze= x;
+  }
+  set setcukry (double x){
+    cukry= x;
+  }
+  double get getwaga=> this.waga;
+  double get getbialko => this.bialko;
+  double get getkalorie => this.kalorie;
+  double get gettluszcze => this.tluszcze;
+  double get getcukry => this.cukry;
+
+
+
+
+
+
+}

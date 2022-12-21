@@ -169,7 +169,7 @@ class _DanieWidokState extends State<DanieWidok> {
                                 );
                               },
                               child: Text(
-                                'Dodaj produkt do bazy danych',
+                                'Dodaj produkt z poza bazy danych',
                                 style: TextStyle(fontSize: 19.0, color: Colors.black),
                               ),
                             ),
@@ -194,6 +194,8 @@ class Jedzenie extends StatefulWidget {
 
 class _jedzenie extends State<Jedzenie> {
   late int idd;
+
+
 
 
   final _produkt = Produkt.produktList();

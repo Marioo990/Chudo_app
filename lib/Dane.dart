@@ -399,7 +399,7 @@ class User {
        this.wzrost);
 
   set setwaga(int w){
-    waga = 0 ;
+
     waga=w;
   }
   set setimie(String x ){

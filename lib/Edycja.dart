@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:chudo_app/Zmienne.dart';
 import 'package:hive/hive.dart';
-
 import 'MyHomePage.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
@@ -39,9 +38,9 @@ class _EdycjaState extends State<Edycja> {
 
 
    }
-   int i =1 ;
 
-   void loa(){
+
+   void load(){
      setState(() {
 
        _myUser.put(1,setUser.getimie);
@@ -273,7 +272,7 @@ class _EdycjaState extends State<Edycja> {
                                             top: 12.0, bottom: 12.0))),
                                 onPressed: () {
                                   set_user();
-                                  loa();
+                                  load();
                                   licz();
                                   Navigator.pushReplacement(
                                     context,

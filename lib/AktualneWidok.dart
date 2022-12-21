@@ -12,19 +12,7 @@ class AktualneWidok extends StatefulWidget {
 
 class _AktualneWidokState extends State<AktualneWidok> {
   final _myUser =  Hive.box('mybox');
-  final _daned = Dane.dane_Dane;
-  List<Dane> _dane_Dane_ = [];
 
-  final _dieta = Dieta.dane_Dieta;
-  List<Dieta> _dane_Dieta_ = [];
-
-  @override
-  void initState() {
-    _dane_Dane_ = _daned;
-    _dane_Dieta_ = _dieta;
-
-    super.initState();
-  }
 
 
   @override
@@ -33,10 +21,18 @@ class _AktualneWidokState extends State<AktualneWidok> {
     var cbialko = _myUser.get(14);
     var ctluszcze = _myUser.get(15);
     var ccukry = _myUser.get(16);
-    var bkalorie = _dane_Dane_.first.kalorie;
-    var bbialko = _dane_Dane_.first.bialko;
-    var btluszcze= _dane_Dane_.first.tluszcze;
-    var bcukry = _dane_Dane_.first.cukry;
+    var bkalorie =0.0;
+    var bbialko = 0.0;
+    var btluszcze=0.0;
+    var bcukry = 0.0;
+        bkalorie = _myUser.get(21);
+        bbialko = _myUser.get(22);
+        btluszcze= _myUser.get(23);
+        bcukry = _myUser.get(24);
+        _myUser.put(25,bkalorie );
+        _myUser.put(26,bbialko );
+        _myUser.put(27,btluszcze);
+        _myUser.put(28,bcukry );
 
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
