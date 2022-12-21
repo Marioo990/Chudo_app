@@ -52,17 +52,8 @@ class _AktualneWidokState extends State<AktualneWidok> {
          _myUser. put(28,0.0);
 
       }
-    void kasuj7(){
-       _myUser.put(31 ,0.0 );
-       _myUser.put(32 ,0.0 );
-       _myUser.put(33  ,0.0);
-       _myUser.put(34,0.0 );
-       _myUser.put(41 ,0.0 );
-       _myUser.put(42 ,0.0 );
-       _myUser.put(43  ,0.0);
-       _myUser.put(44,0.0 );
-    }
-    kasuj7();
+
+
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -75,6 +66,36 @@ class _AktualneWidokState extends State<AktualneWidok> {
 
 
         ),
+        Padding(padding: EdgeInsets.only(bottom: 550.0),
+            child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(left: 300.0, right: 30.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                        MaterialStateProperty.all(Colors.white),
+                        padding: MaterialStateProperty.all(
+                            EdgeInsets.only(top: 12.0, bottom: 12.0))),
+                    onPressed: () {
+                        setState(() {
+                          kasuj();
+                        });
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SiedemAktualneWidok(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Usuń ',
+                      style: TextStyle(fontSize: 16.0, color: Colors.black),
+                    ),
+                  ),
+                ))
+        ),
         Align(
             alignment: FractionalOffset.center,
             child: Column(
@@ -82,7 +103,7 @@ class _AktualneWidokState extends State<AktualneWidok> {
               children: <Widget>[
 
 
-                Padding(padding: EdgeInsets.only(top: 25.0),
+                Padding(padding: EdgeInsets.only(top: 15.0),
                     ),
                 CircleAvatar(
                   radius: 91.0,

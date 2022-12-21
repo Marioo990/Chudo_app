@@ -40,6 +40,16 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
    var bialko = bbialko7.toInt();
    var tluszcze = btluszcze7.toInt();
    var cukry = bcukry7.toInt();
+    void kasuj7(){
+      _myUser.put(31 ,0.0 );
+      _myUser.put(32 ,0.0 );
+      _myUser.put(33  ,0.0);
+      _myUser.put(34,0.0 );
+      _myUser.put(41 ,0.0 );
+      _myUser.put(42 ,0.0 );
+      _myUser.put(43  ,0.0);
+      _myUser.put(44,0.0 );
+    }
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -51,6 +61,36 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                   colors: [new Color(0xff6E6CD8), new Color(0xff40A0EF), new Color(0xff77E1EE)])),
 
 
+        ),
+        Padding(padding: EdgeInsets.only(bottom: 620.0),
+            child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(left: 300.0, right: 30.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                        MaterialStateProperty.all(Colors.white),
+                        padding: MaterialStateProperty.all(
+                            EdgeInsets.only(top: 12.0, bottom: 12.0))),
+                    onPressed: () {
+                      setState(() {
+                        kasuj7();
+                      });
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyHomePage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Usuń ',
+                      style: TextStyle(fontSize: 16.0, color: Colors.black),
+                    ),
+                  ),
+                ))
         ),
         Align(
             alignment: FractionalOffset.center,
@@ -75,7 +115,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700))),
                         Text(
-                          "/ $kalorie",
+                          "/ $ckalorie7",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
