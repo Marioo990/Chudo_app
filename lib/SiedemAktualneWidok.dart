@@ -3,7 +3,7 @@ import 'dart:async';
 import 'MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:hive/hive.dart';
 import 'Zmienne.dart';
 import 'main.dart';
 class SiedemAktualneWidok extends StatefulWidget {
@@ -12,6 +12,7 @@ class SiedemAktualneWidok extends StatefulWidget {
 }
 
 class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
+  final _myUser =  Hive.box('mybox');
   final _daned = Dane.dane_Dane;
   List<Dane> _dane_Dane_ = [];
 
@@ -27,10 +28,14 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
   }
   @override
   Widget build(BuildContext context) {
-    var ckalorie7 = _dane_Dieta_.first.calkowite_kalorie_7;
-    var cbialko7 = _dane_Dieta_.first.calkowite_bialko_7;
-    var ctluszcze7 = _dane_Dieta_.first.calkowite_tluszcze_7;
-    var ccukry7 = _dane_Dieta_.first.calkowite_cukry_7;
+    var ckalorie7 = _myUser.get(13);
+    var cbialko7 =  _myUser.get(14);
+    var ctluszcze7  = _myUser.get(15);
+    var ccukry7 = _myUser.get(16);
+     ckalorie7  =ckalorie7 *7;
+     cbialko7   =cbialko7  *7;
+     ctluszcze7 =ctluszcze7*7;
+     ccukry7    =ccukry7   *7;
     var bkalorie7 = _dane_Dane_.first.kalorie_7;
     var bbialko7 = _dane_Dane_.first.bialko_7;
     var btluszcze7= _dane_Dane_.first.tluszcze_7;
