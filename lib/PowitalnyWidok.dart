@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'main.dart';
 
 class PowitalnyWidok extends StatefulWidget {
+  const PowitalnyWidok({Key? key}) : super(key: key);
+
   @override
   State<PowitalnyWidok> createState() => _PowitalnyWidokState();
 }

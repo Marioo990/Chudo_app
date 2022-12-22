@@ -158,7 +158,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Brakuje",
+                                "Bieżące",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -243,7 +243,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Brakuje",
+                                "Bieżące",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(
@@ -328,7 +328,7 @@ class _SiedemAktualneWidokState extends State<SiedemAktualneWidok> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Brakuje",
+                                "Bieżące",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     textStyle: TextStyle(

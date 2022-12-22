@@ -67,8 +67,8 @@ class _EdycjaState extends State<Edycja> {
 
       }
       bialko= 0.25*wynik;    bialko = bialko/4;
-      tluszcze= 0.2 *wynik;  cukry=cukry/4;
-      cukry = 0.55 *wynik;   tluszcze=tluszcze/9;
+      tluszcze= 0.2 *wynik;  tluszcze=tluszcze/9;
+      cukry = 0.55 *wynik;cukry=cukry/4;
      int b= bialko.round();
      int t =tluszcze.round();
      int c = cukry.round();
@@ -491,8 +491,8 @@ class Cel {
   static List<Cel> cel_lista() {
     return [
       Cel(cel: 'Schudnąć', wartosc: -500.0),
-      Cel(cel: 'utrzymać wagę', wartosc: 0.0),
-      Cel(cel: 'przytyć', wartosc: 500.0),
+      Cel(cel: 'Utrzymać wagę', wartosc: 0.0),
+      Cel(cel: 'Przytyć', wartosc: 500.0),
     ];
   }
 }

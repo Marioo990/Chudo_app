@@ -242,7 +242,7 @@ class _DanieWidokState extends State<DanieWidok> {
                                 );
                               },
                               child: Text(
-                                'Dodaj produkt z poza bazy danych',
+                                'Dodaj produkt spoza bazy danych',
                                 style: TextStyle(fontSize: 19.0, color: Colors.black),
                               ),
                             ),

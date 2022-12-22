@@ -11,14 +11,7 @@ final _myUser =  Hive.box('mybox');
 class _DaneState extends State<Dane> {
   var getuser= _myUser.get(1);
 
-  final _user = User.dane_User;
-  List<User> _dane_user = [];
 
-  @override
-  void initState() {
-    _dane_user = _user;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -352,33 +345,9 @@ class _DaneState extends State<Dane> {
     );
   }
 }
-class User {
-  late String imie;
-  late double wiek;
-  late double waga;
-  late double wzrost;
 
 
-
-
-  User(
-      {required this.wiek,
-       required this.imie,
-       required this.waga,
-       required this.wzrost});
-
- set wagaa(double w){
-   waga=w;
-}
-  set dimie(String x ){
-    imie = x;
-  }
-  String get dimie =>this.imie;
-  static List<User> get dane_User {
-    return [User(wiek: 22, imie: "User" ,waga: 80, wzrost: 290)];
-  }
-
-}class User1 {
+class User1 {
   late String imie;
   late int wiek;
   late int waga;
@@ -410,8 +379,6 @@ class User {
   int get getwaga=>waga;
   int get getwiek =>wiek;
   int get getwzrost =>wzrost;
-  static List<User> get dane_User {
-    return [User(wiek: 22, imie: "User" ,waga: 80, wzrost: 290)];
-  }
+
 
 }
