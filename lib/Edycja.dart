@@ -456,8 +456,8 @@ class Aktywnosc_class {
 
   static List<Aktywnosc_class> list_Aktywnosc() {
     return [
-      Aktywnosc_class(nazwa: 'Bieganie', wartosc: 400),
-      Aktywnosc_class(nazwa: 'Siłownia', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Bieganie', wartosc: 500),
+      Aktywnosc_class(nazwa: 'Siłownia', wartosc: 300),
       Aktywnosc_class(nazwa: 'Tryb siedzący', wartosc: 0.0),
       Aktywnosc_class(nazwa: 'Spacer', wartosc: 100),
       Aktywnosc_class(nazwa: 'Piłka nożna', wartosc: 600),
