@@ -30,8 +30,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.blue[900],
       ),
-    //  home: PowitalnyWidok(),
-      home: MyHomePage(),
+      home: PowitalnyWidok(),
+
     );
   }
 
