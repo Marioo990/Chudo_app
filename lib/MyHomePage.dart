@@ -40,11 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: (index) => setState(() => _currentIndex = index),
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_chart_sharp ), label: "powietrze"),
+              icon: Icon(Icons.add_chart_sharp ), label: "Dane"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined ), label: "powietrze"),
+              icon: Icon(Icons.account_circle_outlined ), label: "User"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_shopping_cart ), label: "pogoda")
+              icon: Icon(Icons.add_shopping_cart ), label: "Danie")
         ],
       ),
     );

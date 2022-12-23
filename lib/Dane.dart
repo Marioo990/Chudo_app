@@ -10,9 +10,6 @@ class Dane extends StatefulWidget {
 final _myUser =  Hive.box('mybox');
 class _DaneState extends State<Dane> {
   var getuser= _myUser.get(1);
-
-
-
   @override
   Widget build(BuildContext context) {
     var wiek = _myUser.get(3);
@@ -352,10 +349,6 @@ class User1 {
   late int wiek;
   late int waga;
   late int wzrost;
-
-
-
-
   User1(
       this.wiek,
        this.imie,
@@ -379,6 +372,4 @@ class User1 {
   int get getwaga=>waga;
   int get getwiek =>wiek;
   int get getwzrost =>wzrost;
-
-
 }

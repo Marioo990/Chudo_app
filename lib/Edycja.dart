@@ -25,15 +25,11 @@ class _EdycjaState extends State<Edycja> {
      setState(() {
        setUser.setimie=_imie.text;
        setUser.setwaga = int.parse(_waga.text);
-
        setUser.setwiek=int.parse(_wiek.text);
        setUser.setwzrost=int.parse(_tall.text);
 
      });
-
-
-   }
-
+  }
 
    void load(){
      setState(() {
@@ -479,7 +475,6 @@ class Plec {
     ];
   }
 }
-
 
 class Cel {
   late String cel;

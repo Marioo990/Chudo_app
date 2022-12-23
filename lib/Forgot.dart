@@ -121,7 +121,7 @@ class _ForgotpassState extends State<Forgotpass> {
                                           builder: (context) => LoginPage()));
                                 },
                                 child: Text(
-                                  "Login",
+                                  "Zaloguj",
                                   style: TextStyle(
                                     fontSize: 20,
                                   ),
