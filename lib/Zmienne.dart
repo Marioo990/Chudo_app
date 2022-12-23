@@ -44,12 +44,6 @@ class Produkt {
     ];
   }
 
-  jeden_gram() {
-    kalorie = kalorie / 100;
-    bialko = bialko / 100;
-    tluszcze = tluszcze / 100;
-    cukry = cukry / 100;
-  }
 
 }
 
